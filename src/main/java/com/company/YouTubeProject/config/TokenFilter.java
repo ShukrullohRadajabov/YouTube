@@ -85,10 +85,11 @@ public class TokenFilter extends OncePerRequestFilter {
             authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
             SecurityContextHolder.getContext().setAuthentication(authentication);
             filterChain.doFilter(request, response);
+
         } catch (JwtException e) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.setHeader("Message", "Token Not Valid");
-            return;
+            response.setHeader("Message", "Token Not Val" +
+                    "id");
         }
     }
 }

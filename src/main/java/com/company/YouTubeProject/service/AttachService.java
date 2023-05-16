@@ -6,11 +6,14 @@ import com.company.YouTubeProject.exeption.ItemNotFoundException;
 import com.company.YouTubeProject.repository.AttachRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -57,7 +60,7 @@ public class AttachService {
         return null;
     }
 
-    public String getExtension(String fileName) { // mp3/jpg/npg/mp4.....
+    public String getExtension(String fileName) {
         int lastIndex = fileName.lastIndexOf(".");
         return fileName.substring(lastIndex + 1);
     }
@@ -86,7 +89,25 @@ public class AttachService {
 
     public AttachEntity get(String id) {
         return attachRepository.findById(id).orElseThrow(() -> {
-            throw new ItemNotFoundException("Attach not ound");
+            throw new ItemNotFoundException("Attach not found");
         });
+    }
+
+    public Resource download(String fileName) {
+        try {
+            int lastIndex = fileName.lastIndexOf(".");
+            String id = fileName.substring(0, lastIndex);
+            AttachEntity attachEntity = get(id);
+
+            Path file = Paths.get("attaches/" + attachEntity.getPath() + "/" + fileName);
+            Resource resource = new UrlResource(file.toUri());
+            if (resource.exists() || resource.isReadable()) {
+                return resource;
+            } else {
+                throw new RuntimeException("Could not read the file!");
+            }
+        } catch (MalformedURLException e) {
+            throw new RuntimeException("Error: " + e.getMessage());
+        }
     }
 }

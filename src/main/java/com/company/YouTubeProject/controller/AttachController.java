@@ -3,6 +3,8 @@ package com.company.YouTubeProject.controller;
 import com.company.YouTubeProject.dto.attach.AttachDTO;
 import com.company.YouTubeProject.service.AttachService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,6 +26,13 @@ public class AttachController {
     public ResponseEntity<AttachDTO> upload(@RequestParam("file") MultipartFile file) {
         AttachDTO res = attachService.upload(file);
         return ResponseEntity.ok().body(res);
+    }
+
+    @GetMapping("/download/{fineName}")
+    public ResponseEntity<Resource> download(@PathVariable("fineName") String fileName) {
+        Resource file = attachService.download(fileName);
+        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
+                "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
 
 }
