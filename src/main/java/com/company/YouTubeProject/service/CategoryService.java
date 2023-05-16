@@ -42,4 +42,8 @@ public class CategoryService {
     }
 
 
+    public CategoryDto update(CategoryDto dto) {
+
+        return null;
+    }
 }
