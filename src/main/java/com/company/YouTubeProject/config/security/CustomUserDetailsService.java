@@ -1,5 +1,6 @@
 package com.company.YouTubeProject.config.security;
 
+
 import com.company.YouTubeProject.entity.ProfileEntity;
 import com.company.YouTubeProject.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;

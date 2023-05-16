@@ -1,6 +1,7 @@
 package com.company.YouTubeProject.service;
 
-import com.company.YouTubeProject.utill.JwtUtil;
+import com.company.YouTubeProject.util.JwtUtil;
+
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,8 @@ import org.springframework.stereotype.Service;
 public class MailSenderService {
     @Autowired
     private JavaMailSender javaMailSender;
-    @Value("soliyev_2024@internet.ru")
+
+    @Value("${spring.mail.username}")
     private String fromAccount;
     @Value("${server.host}")
     private String serverHost;
@@ -29,6 +31,7 @@ public class MailSenderService {
         // https://kun.uz/api/v1/auth//email/verification/dasdasdasd.asdasdad.asda
         // localhost:8080/api/v1/auth/email/verification/dasdasdasd.asdasdad.asda
         sendEmail(toAccount, "Registration", stringBuilder.toString());
+     //   emailService.create(toAccount,stringBuilder.toString());
     }
 
     public void sendRegistrationEmailMime(String toAccount) {
@@ -41,6 +44,7 @@ public class MailSenderService {
         stringBuilder.append(JwtUtil.encode(toAccount)).append("\">");
         stringBuilder.append("Click to the link to complete registration</a></p>");
         sendEmailMime(toAccount, "Registration", stringBuilder.toString());
+      //  emailService.create(toAccount,stringBuilder.toString());
     }
 
     private void sendEmail(String toAccount, String subject, String text) {

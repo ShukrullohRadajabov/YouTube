@@ -1,7 +1,6 @@
 package com.company.YouTubeProject.config;
 
-
-import com.company.YouTubeProject.utill.MD5Util;
+import com.company.YouTubeProject.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -9,20 +8,13 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import java.util.UUID;
-
 @EnableWebSecurity
 @Component
 public class SecurityConfig {
@@ -31,30 +23,27 @@ public class SecurityConfig {
     @Autowired
     private TokenFilter tokenFilter;
 
+    /*    @Bean
+        public AuthenticationProvider authenticationProvider() {
+            // authentication
+            // login,password ACTIVE,
+            String password = UUID.randomUUID().toString();
+            System.out.println("User Pasword mazgi: " + password);
 
-    /* @Bean
-     public AuthenticationProvider authenticationProvider() {
-         // authentication
-         // login,password ACTIVE,
-         String password = UUID.randomUUID().toString();
-         System.out.println("User Pasword mazgi: " + password);
+            UserDetails user = User.builder()
+                    .username("user")
+                    .password("{noop}" + password)
+                    .roles("USER")
+                    .build();
 
-         UserDetails user = User.builder()
-                 .username("user")
-                 .password("{noop}" + password)
-                 .roles("USER")
-                 .build();
-
-         final DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-         authenticationProvider.setUserDetailsService(new InMemoryUserDetailsManager(user));
-         return authenticationProvider;
-     }
- */
-   public static String[] AUTH_WHITELIST = {"/api/v1/*/public/**",
-            "/api/v1/auth/**",
-            "/api/v1/auth"
+            final DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+            authenticationProvider.setUserDetailsService(new InMemoryUserDetailsManager(user));
+            return authenticationProvider;
+        }*/
+    public static String[] AUTH_WHITELIST = {"/api/v1/*/public/**",
+            "/api/v1/auth/**"
+//            "/api/v1/auth"
     };
-
     @Bean
     public AuthenticationProvider authenticationProvider() {
         final DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
@@ -62,7 +51,6 @@ public class SecurityConfig {
         authenticationProvider.setPasswordEncoder(passwordEncoder());
         return authenticationProvider;
     }
-
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -73,18 +61,16 @@ public class SecurityConfig {
         http.csrf().disable().cors().disable();
         http.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
         http.authorizeHttpRequests()
-//                .requestMatchers("/api/v1/*/public/**").permitAll()
-//                .requestMatchers("/api/v1/auth/**").permitAll()
-//                .requestMatchers("/api/v1/auth").permitAll()
                 .requestMatchers(AUTH_WHITELIST).permitAll()
-                .requestMatchers("/api/v1/article/private").hasRole("USER")
-                .requestMatchers("/api/v1/profile/adm/**").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.PUT, "/api/v1/article/private/*").hasAnyRole("MODERATOR", "ADMIN")
+                .requestMatchers("/api/v1/*/public/**").permitAll()
+                .requestMatchers("/api/v1/auth/**").permitAll()
+                .requestMatchers("/api/v1/category/public/*").permitAll()
+                .requestMatchers(HttpMethod.PUT, "/api/v1/profile/private/*").hasAnyRole( "ADMIN")
+                .requestMatchers("/api/v1/category/private/**").hasAnyRole("ADMIN")
                 .anyRequest()
-                .authenticated().and().httpBasic();
+                .authenticated().and().httpBasic() ;//.and().formLogin();
         return http.build();
     }
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new PasswordEncoder() {
@@ -92,7 +78,6 @@ public class SecurityConfig {
             public String encode(CharSequence rawPassword) {
                 return rawPassword.toString();
             }
-
             @Override
             public boolean matches(CharSequence rawPassword, String encodedPassword) {
                 if (MD5Util.getMd5Hash(rawPassword.toString()).equals(encodedPassword)) {
@@ -102,7 +87,6 @@ public class SecurityConfig {
             }
         };
     }
-
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
@@ -112,7 +96,5 @@ public class SecurityConfig {
             }
         };
     }
-
-
 
 }

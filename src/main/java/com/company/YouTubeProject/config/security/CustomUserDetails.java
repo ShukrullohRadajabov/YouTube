@@ -1,16 +1,13 @@
 package com.company.YouTubeProject.config.security;
 
-
-import com.company.YouTubeProject.entity.GeneralStatus;
 import com.company.YouTubeProject.entity.ProfileEntity;
+import com.company.YouTubeProject.enums.GeneralStatus;
 import com.company.YouTubeProject.enums.ProfileRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.List;
 
 public class CustomUserDetails implements UserDetails {
