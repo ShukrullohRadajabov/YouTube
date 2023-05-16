@@ -1,0 +1,8 @@
+### Update profle
+PUT localhost:8080/api/v1/profile/public/updatePsw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQxNjIwOTQsImVtYWlsIjoidXpva292MjlAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY4NDI0ODQ5NCwiaXNzIjoiWW91dHViZSB0ZXN0IHBvcnRhbGkifQ.CJSerI8ozByWn1Vk8Ed9M-1MIHFJThFOvTukJNwiAW61m9LpvCGEcHL2b4ZXhNmcmVHEtitCeUAjP9_cqgFJpQ
+Content-Type:  application/json
+
+{
+  "password" : "77"
+}
