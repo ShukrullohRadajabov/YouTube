@@ -5,7 +5,6 @@ import com.company.YouTubeProject.dto.auth.AuthResponseDTO;
 import com.company.YouTubeProject.dto.registration.RegistrationDTO;
 import com.company.YouTubeProject.dto.registration.RegistrationResponseDTO;
 import com.company.YouTubeProject.entity.ProfileEntity;
-
 import com.company.YouTubeProject.enums.GeneralStatus;
 import com.company.YouTubeProject.enums.ProfileRole;
 import com.company.YouTubeProject.exeption.AppBadRequestException;
@@ -19,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
+
 public class AuthService {
     @Autowired
     private ProfileRepository profileRepository;

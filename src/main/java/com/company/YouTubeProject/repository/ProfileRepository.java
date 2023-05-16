@@ -9,6 +9,9 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
 import java.util.Optional;
 
 public interface ProfileRepository extends CrudRepository<ProfileEntity, Integer>, PagingAndSortingRepository<ProfileEntity, Integer> {
@@ -22,4 +25,5 @@ public interface ProfileRepository extends CrudRepository<ProfileEntity, Integer
     @Query("SELECT new ProfileEntity(p.id,p.name,p.surname,p.email) FROM ProfileEntity as p " +
             " where p.id =:id ")
     ProfileEntity getAllId(@Param("id") Integer id);
+
 }

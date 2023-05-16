@@ -46,5 +46,6 @@ public class ProfileEntity {
         this.surname = surname;
         this.email = email;
     }
+
 }
 

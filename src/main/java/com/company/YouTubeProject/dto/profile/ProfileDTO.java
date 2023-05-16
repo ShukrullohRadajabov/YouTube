@@ -10,6 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
+
 public class ProfileDTO {
     private Integer id;
     private String name;
@@ -20,5 +21,3 @@ public class ProfileDTO {
     private ProfileRole role;
     private GeneralStatus status;
 }
-
-

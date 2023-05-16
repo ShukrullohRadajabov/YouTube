@@ -3,8 +3,8 @@ POST localhost:8080/api/v1/auth
 Content-Type:  application/json
 
 {
-  "email": "muhammadyusufgapirov@gmail.com",
-  "password": "12345"
+  "email": "ali@mail.com",
+  "password": "2"
 }
 
 ### Login
@@ -21,16 +21,8 @@ POST localhost:8080/api/v1/auth/register
 Content-Type:  application/json
 
 {
-  "name": "Muhammadyusuf",
-  "surname": "Gapirov",
-  "email": "muhammadyusufgapirov@gmail.com",
-  "password": "12345"
+  "name": "Mamurjon",
+  "surname": "Uzokov",
+  "email": "uzokov29@gmail.com",
+  "password": "7"
 }
-
-
-### Verification email
-###
-GET http://localhost:8080/api/v1/auth/email/verification/eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQyMzU3NTAsImVtYWlsIjoibXVoYW1tYWR5dXN1ZmdhcGlyb3ZAZ21haWwuY29tIiwiZXhwIjoxNjg0MzIyMTUwLCJpc3MiOiJZb3V0dWJlIHRlc3QgcG9ydGFsaSJ9.LAcQP1vc2paaauG8dp3VIjWe9e7DEU8Ye61-LHgc3DSag6SWD8W4zOVQe8P4OOVEHnXKN1lKOWTOIbTP6rKAKw
-Content-Type: application/json
-
-

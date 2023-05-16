@@ -11,7 +11,6 @@ import com.company.YouTubeProject.util.SpringSecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,6 +28,7 @@ public class ProfileService {
         entity.setPassword(MD5Util.getMd5Hash(dto.getPassword()));
         entity.setStatus(GeneralStatus.ACTIVE);
         profileRepository.save(entity);
+        profileRepository.save(entity); // save profile
         dto.setPassword(null);
         dto.setId(entity.getId());
         return dto;
