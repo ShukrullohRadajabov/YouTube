@@ -1,0 +1,48 @@
+### Create profile
+POST localhost:8080/api/v1/profile/private/create/adm
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQyNDA5MzgsImVtYWlsIjoidXpva292MjlAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY4NDMyNzMzOCwiaXNzIjoiWW91dHViZSB0ZXN0IHBvcnRhbGkifQ.S9lexiCX0G-xHZM8x4wn3uOyPjiCzRKWk5x2rCMCFMiEYJoFGeNTeUKoS5mnSxu6lrmTFnIsuqZu_Sm7eSt4JQ
+Content-Type:  application/json
+
+### UpdatePsw profile
+PUT localhost:8080/api/v1/profile/changePsw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQzMzU1MDIsImVtYWlsIjoidXpva292MjlAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY4NDQyMTkwMiwiaXNzIjoiWW91dHViZSB0ZXN0IHBvcnRhbGkifQ.EkhUWczHuNMAqfyP4_7NKvq0UrtPkGt74a3Ha4g_ZWQS4wyX0UFgwlHdvZ9q-WrL9Aw0M0rfibZPOJWwFM8i9w
+Content-Type:  application/json
+
+{
+  "psw": "7"
+}
+
+### UpdateEmail profile
+PUT localhost:8080/api/v1/profile/changeEmail
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQzMjcyOTcsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ0MTM2OTcsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.6mMVForhc8KmerSD2zEgsSfOMsLKjezyJfz1rsoLarJ6LXsP101_bpBkKngiY4YWelLNlLKxq6xv28S-oq2KZw
+Content-Type:  application/json
+
+{
+  "newEmail": "mamurjonuzokov568@gmail.com"
+}
+
+### UpdateNameSurname profile
+PUT localhost:8080/api/v1/profile/changeNameSurname
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQzMzU1MDIsImVtYWlsIjoidXpva292MjlAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY4NDQyMTkwMiwiaXNzIjoiWW91dHViZSB0ZXN0IHBvcnRhbGkifQ.EkhUWczHuNMAqfyP4_7NKvq0UrtPkGt74a3Ha4g_ZWQS4wyX0UFgwlHdvZ9q-WrL9Aw0M0rfibZPOJWwFM8i9w
+Content-Type:  application/json
+
+{
+  "name": "Ali",
+  "surname": "Aliyev"
+}
+
+### Get profile info
+GET localhost:8080/api/v1/profile/getProfileDetail
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQzMzU1MDIsImVtYWlsIjoidXpva292MjlAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY4NDQyMTkwMiwiaXNzIjoiWW91dHViZSB0ZXN0IHBvcnRhbGkifQ.EkhUWczHuNMAqfyP4_7NKvq0UrtPkGt74a3Ha4g_ZWQS4wyX0UFgwlHdvZ9q-WrL9Aw0M0rfibZPOJWwFM8i9w
+
+### UpdateNameSurname profile
+POST localhost:8080/api/v1/profile/private/create/adm
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQzNDA1OTgsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ0MjY5OTgsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.v2GnYcnW2eNXeQ_8EmWD5Z34D1SxpgaRd7qBOmLxBk9htmD518biIACtqKW5WWzSlP6lbMjmK9dV7bwt-qH_cg
+Content-Type:  application/json
+
+{
+  "name": "Vali",
+  "surname": "Valiyev",
+  "email": "email@mail.com",
+  "role": "ROLE_MODERATOR"
+}
