@@ -64,9 +64,9 @@ public class SecurityConfig {
                 .requestMatchers(AUTH_WHITELIST).permitAll()
                 .requestMatchers("/api/v1/*/public/**").permitAll()
                 .requestMatchers("/api/v1/auth/**").permitAll()
-                .requestMatchers(HttpMethod.PUT, "/api/v1/profile/private/*").hasAnyRole( "ADMIN")
+                .requestMatchers(HttpMethod.POST, "/api/v1/*/private/**").hasAnyRole( "ADMIN")
                 .anyRequest()
-                .authenticated().and().httpBasic() ;//.and().formLogin();
+                .authenticated() ;//.and().formLogin();
         return http.build();
     }
     @Bean

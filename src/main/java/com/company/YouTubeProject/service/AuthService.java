@@ -2,6 +2,9 @@ package com.company.YouTubeProject.service;
 
 import com.company.YouTubeProject.dto.auth.AuthDTO;
 import com.company.YouTubeProject.dto.auth.AuthResponseDTO;
+import com.company.YouTubeProject.dto.jwt.JwtEmailDTO;
+import com.company.YouTubeProject.dto.registration.ChangeEmailDTO;
+import com.company.YouTubeProject.dto.registration.MailChangeResponseDTO;
 import com.company.YouTubeProject.dto.registration.RegistrationDTO;
 import com.company.YouTubeProject.dto.registration.RegistrationResponseDTO;
 import com.company.YouTubeProject.entity.ProfileEntity;
@@ -12,6 +15,7 @@ import com.company.YouTubeProject.exeption.ItemNotFoundException;
 import com.company.YouTubeProject.repository.ProfileRepository;
 import com.company.YouTubeProject.util.JwtUtil;
 import com.company.YouTubeProject.util.MD5Util;
+import com.company.YouTubeProject.util.SpringSecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -85,6 +89,15 @@ public class AuthService {
         String s = "Verification link was send to email: " + dto.getEmail();
         return new RegistrationResponseDTO(s);
     }
+    public MailChangeResponseDTO changeEmail(ChangeEmailDTO dto) {
+        Optional<ProfileEntity> optional = profileRepository.findByEmail(SpringSecurityUtil.getProfileEmail());
+        if (optional.isEmpty()) {
+            throw new ItemNotFoundException("Email not found mazgi.");
+        }
+        mailSenderService.sendRegistrationEmailMime1(dto.getNewEmail());
+        String s = " link was send to email: " + dto.getNewEmail();
+        return new MailChangeResponseDTO(s);
+    }
 
     public RegistrationResponseDTO emailVerification(String jwt) {
         // asjkdhaksdh.daskhdkashkdja
@@ -100,5 +113,14 @@ public class AuthService {
         entity.setStatus(GeneralStatus.ACTIVE);
         profileRepository.save(entity);
         return new RegistrationResponseDTO("Registration Done");
+    }
+    public MailChangeResponseDTO emailChange(String jwt) {
+        JwtEmailDTO dto = JwtUtil.decodeEmailChange(jwt);
+        Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());
+        if (optional.isPresent()) {
+            throw new ItemNotFoundException("Yangi kiritmoqchi bulgan emailing borku.");
+        }
+        profileRepository.changeEmail(dto.getEmail(), dto.getId());
+        return new MailChangeResponseDTO("Email Changed!!");
     }
 }

@@ -1,6 +1,8 @@
 package com.company.YouTubeProject.service;
 
+import com.company.YouTubeProject.dto.registration.ChangeEmailDTO;
 import com.company.YouTubeProject.util.JwtUtil;
+import com.company.YouTubeProject.util.SpringSecurityUtil;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +48,18 @@ public class MailSenderService {
         sendEmailMime(toAccount, "Registration", stringBuilder.toString());
       //  emailService.create(toAccount,stringBuilder.toString());
     }
+    public void sendRegistrationEmailMime1(String toAccount) {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("<h1 style=\"text-align: center\">Change email</h1>");
+        stringBuilder.append("<br><br>");
+        // <p><a href="asd.dasdad.asdaasda">Click to the link to complete registration</a></p>
+        stringBuilder.append("<p><a href=\"");
+        stringBuilder.append(serverHost).append("/api/v1/auth/email/changeEmail/");
+        stringBuilder.append(JwtUtil.encode(toAccount,SpringSecurityUtil.getProfileId())).append("\">");
+        stringBuilder.append("Click to the link to complete change email</a></p>");
+        sendEmailMime(toAccount, "Change email", stringBuilder.toString());
+        //  emailService.create(toAccount,stringBuilder.toString());
+    }
 
     private void sendEmail(String toAccount, String subject, String text) {
         SimpleMailMessage msg = new SimpleMailMessage();
@@ -59,8 +73,8 @@ public class MailSenderService {
     private void sendEmailMime(String toAccount, String subject, String text) {
         MimeMessage msg = javaMailSender.createMimeMessage();
         try {
-            msg.setFrom(fromAccount);
             MimeMessageHelper helper = new MimeMessageHelper(msg, true);
+            msg.setFrom(fromAccount);
             helper.setTo(toAccount);
             helper.setSubject(subject);
             helper.setText(text, true);
