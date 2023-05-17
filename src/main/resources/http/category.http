@@ -1,19 +1,29 @@
 ### Category
 POST localhost:8080/api/v1/category/private/adm
 Content-Type:  application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQyMzc1NDgsImVtYWlsIjoibXVoYW1tYWR5dXN1ZmdhcGlyb3ZAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQzMjM5NDgsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.1WE6AUBaEhe6b7p_uQFysfbeyw2Y2nmVsYjpK_XYj0wTPXdVQh8P0iRP5vtu_AVVwSzWlcLUIiPayLzClgyn7w
-
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQzMjgxMzksImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ0MTQ1MzksImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.BHeOXDgSyVeit3mUMTQqwOU5O6JLch0DZFWc0PSclCukZ1IpAoDC1UpExdReu1MDyt1jlfLdvMct1HxdgBTsrw
 
 {
-  "name" : "ssssss"
+  "name" : "LLLLL"
 }
 
 
 ### Category update
-POST localhost:8080/api/v1/category/private/update/admin
+PUT localhost:8080/api/v1/category/private/update/adm/1
 Content-Type:  application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQyMzc1NDgsImVtYWlsIjoibXVoYW1tYWR5dXN1ZmdhcGlyb3ZAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQzMjM5NDgsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.1WE6AUBaEhe6b7p_uQFysfbeyw2Y2nmVsYjpK_XYj0wTPXdVQh8P0iRP5vtu_AVVwSzWlcLUIiPayLzClgyn7w
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQzMjgxMzksImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ0MTQ1MzksImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.BHeOXDgSyVeit3mUMTQqwOU5O6JLch0DZFWc0PSclCukZ1IpAoDC1UpExdReu1MDyt1jlfLdvMct1HxdgBTsrw
 
 {
-  "name" : "aaaa"
+  "name" : "dddd"
 }
+
+### Category delete
+DELETE localhost:8080/api/v1/category/private/delete/adm/5
+Content-Type:  application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQzMjgxMzksImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ0MTQ1MzksImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.BHeOXDgSyVeit3mUMTQqwOU5O6JLch0DZFWc0PSclCukZ1IpAoDC1UpExdReu1MDyt1jlfLdvMct1HxdgBTsrw
+
+### Category list
+GET localhost:8080/api/v1/category/public/list
+Content-Type:  application/json
+
+
