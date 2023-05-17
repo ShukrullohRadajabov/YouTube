@@ -2,9 +2,15 @@ package com.company.YouTubeProject.dto.profile;
 
 import com.company.YouTubeProject.enums.GeneralStatus;
 import com.company.YouTubeProject.enums.ProfileRole;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
+
 public class ProfileDTO {
     private Integer id;
     private String name;

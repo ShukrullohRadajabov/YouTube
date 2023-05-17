@@ -36,5 +36,16 @@ public class ProfileEntity {
     @OneToOne
     @JoinColumn(name = "photo_id", insertable = false, updatable = false)
     private AttachEntity photo;*/
+
+    public ProfileEntity() {
+    }
+
+    public ProfileEntity(Integer id, String name, String surname, String email) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+    }
+
 }
 

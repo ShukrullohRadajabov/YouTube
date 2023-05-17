@@ -88,8 +88,8 @@ public class TokenFilter extends OncePerRequestFilter {
 
         } catch (JwtException e) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.setHeader("Message", "Token Not Val" +
-                    "id");
+            response.setHeader("Message", "Token Not Valid");
+            return;
         }
     }
 }

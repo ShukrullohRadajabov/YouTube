@@ -101,4 +101,5 @@ public class AuthService {
         profileRepository.save(entity);
         return new RegistrationResponseDTO("Registration Done");
     }
+
 }
