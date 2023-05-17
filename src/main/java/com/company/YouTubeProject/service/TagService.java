@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -28,5 +30,18 @@ public class TagService {
         tagEntity.setCreatedDate(LocalDateTime.now());
         tagRepository.save(tagEntity);
         return name;
+    }
+
+    public boolean delete(String name) {
+        tagRepository.deleteByName(name);
+        return true;
+    }
+
+    public List<TagEntity> getList() {
+        List<TagEntity> tagEntityList = new ArrayList<>();
+        for (TagEntity tagEntity : tagRepository.findAll()) {
+            tagEntityList.add(tagEntity);
+        }
+        return tagEntityList;
     }
 }

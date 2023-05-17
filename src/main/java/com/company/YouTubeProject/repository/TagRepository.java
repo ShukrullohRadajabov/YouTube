@@ -7,4 +7,6 @@ import java.util.Optional;
 
 public interface TagRepository extends CrudRepository<TagEntity, String> {
     Optional<TagEntity> findByName(String name);
+
+    void deleteByName(String name);
 }
