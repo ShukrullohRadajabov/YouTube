@@ -25,15 +25,6 @@ public class ProfileController {
     public ResponseEntity<?> create(@RequestBody ProfileAdminCreateDTO dto) {
         return ResponseEntity.ok(profileService.create(dto));
     }
-    @PutMapping(value = "/public/updatePsw")
-    public ResponseEntity<?> update(@RequestBody String password) {
-        return ResponseEntity.ok(profileService.update(password));
-    }
-    @GetMapping("/public/getAll")
-    public ResponseEntity<ProfileDTO> getAll() {
-        return ResponseEntity.ok(profileService.findAll());
-    }
-
 
     @PutMapping("/changePsw")
     public ResponseEntity<?> changePsw (@RequestBody ProfilePswDTO dto) {

@@ -1,7 +1,7 @@
 package com.company.YouTubeProject.service;
 
-import com.company.YouTubeProject.dto.categoryDto.CategoryDto;
-import com.company.YouTubeProject.dto.categoryDto.CategoryResponseDTO;
+import com.company.YouTubeProject.dto.category.CategoryDTO;
+import com.company.YouTubeProject.dto.category.CategoryResponseDTO;
 import com.company.YouTubeProject.entity.CategoryEntity;
 import com.company.YouTubeProject.exeption.ItemAlreadyExistsException;
 import com.company.YouTubeProject.repository.CategoryRepository;
@@ -16,7 +16,7 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    public CategoryResponseDTO created(CategoryDto dto) {
+    public CategoryResponseDTO created(CategoryDTO dto) {
         Optional<CategoryEntity> optional = categoryRepository.findByName(dto.getName());
 
         if (optional.isPresent()) {
@@ -42,7 +42,7 @@ public class CategoryService {
     }
 
 
-    public CategoryDto update(CategoryDto dto) {
+    public CategoryDTO update(CategoryDTO dto) {
 
         return null;
     }

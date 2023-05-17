@@ -2,7 +2,6 @@ package com.company.YouTubeProject.service;
 
 import com.company.YouTubeProject.dto.profile.ProfileAdminCreateDTO;
 import com.company.YouTubeProject.dto.profile.ProfileDTO;
-import com.company.YouTubeProject.dto.profile.ProfilePswDTO;
 import com.company.YouTubeProject.entity.ProfileEntity;
 import com.company.YouTubeProject.enums.GeneralStatus;
 import com.company.YouTubeProject.enums.ProfileRole;
