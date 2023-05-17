@@ -41,8 +41,12 @@ public class SecurityConfig {
             return authenticationProvider;
         }*/
     public static String[] AUTH_WHITELIST = {"/api/v1/*/public/**",
+
             "/api/v1/auth/**",
-            "/api/v1/auth"
+//            "/api/v1/auth"
+            "/api/v1/auth/**",
+            "/api/v1/auth",
+            "/api/v1/attach/public/upload"
     };
     @Bean
     public AuthenticationProvider authenticationProvider() {

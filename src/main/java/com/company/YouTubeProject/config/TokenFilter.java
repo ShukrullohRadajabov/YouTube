@@ -2,6 +2,7 @@ package com.company.YouTubeProject.config;
 
 import com.company.YouTubeProject.dto.jwt.JwtDTO;
 import com.company.YouTubeProject.util.JwtUtil;
+
 import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -16,6 +17,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.filter.OncePerRequestFilter;
+import io.jsonwebtoken.JwtException;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -85,10 +87,11 @@ public class TokenFilter extends OncePerRequestFilter {
             authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
             SecurityContextHolder.getContext().setAuthentication(authentication);
             filterChain.doFilter(request, response);
+
         } catch (JwtException e) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.setHeader("Message", "Token Not Valid");
-            return;
+            response.setHeader("Message", "Token Not Val" +
+                    "id");
         }
     }
 }
