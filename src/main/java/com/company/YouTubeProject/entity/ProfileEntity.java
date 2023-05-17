@@ -4,6 +4,7 @@ import com.company.YouTubeProject.enums.GeneralStatus;
 import com.company.YouTubeProject.enums.ProfileRole;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @Setter
 @Table(name ="profile")
 @Entity
+@NoArgsConstructor
 public class ProfileEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,8 +39,6 @@ public class ProfileEntity {
     @JoinColumn(name = "photo_id", insertable = false, updatable = false)
     private AttachEntity photo;*/
 
-    public ProfileEntity() {
-    }
 
     public ProfileEntity(Integer id, String name, String surname, String email) {
         this.id = id;
@@ -46,6 +46,5 @@ public class ProfileEntity {
         this.surname = surname;
         this.email = email;
     }
-
 }
 

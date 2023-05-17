@@ -1,6 +1,7 @@
 package com.company.YouTubeProject.util;
 
 import com.company.YouTubeProject.dto.jwt.JwtDTO;
+import com.company.YouTubeProject.dto.jwt.JwtEmailDTO;
 
 import com.company.YouTubeProject.enums.ProfileRole;
 import com.company.YouTubeProject.exeption.MethodNotAllowedExeption;
@@ -42,11 +43,33 @@ public class JwtUtil {
         jwtParser.setSigningKey(secretKey);
         Jws<Claims> jws = jwtParser.parseClaimsJws(token);
         Claims claims = jws.getBody();
-        String  email = (String) claims.get("email");
-
+        String email = (String) claims.get("email");
         String role = (String) claims.get("role");
         ProfileRole profileRole = ProfileRole.valueOf(role);
         return new JwtDTO(email, profileRole);
+    }
+
+    public static String encode(String profileEmail, Integer id) {
+        JwtBuilder jwtBuilder = Jwts.builder();
+        jwtBuilder.setIssuedAt(new Date());
+        jwtBuilder.signWith(SignatureAlgorithm.HS512, secretKey);
+
+        jwtBuilder.claim("email", profileEmail);
+        jwtBuilder.claim("id", id);
+
+        jwtBuilder.setExpiration(new Date(System.currentTimeMillis() + (tokenLiveTime)));
+        jwtBuilder.setIssuer("Youtube test portali");
+        return jwtBuilder.compact();
+    }
+
+    public static JwtEmailDTO decodeEmailChange(String token) {
+        JwtParser jwtParser = Jwts.parser();
+        jwtParser.setSigningKey(secretKey);
+        Jws<Claims> jws = jwtParser.parseClaimsJws(token);
+        Claims claims = jws.getBody();
+        String email = (String) claims.get("email");
+        Integer id = (Integer) claims.get("id");
+        return new JwtEmailDTO(email, id);
     }
 
     public static String decodeEmailVerification(String token) {
@@ -101,6 +124,7 @@ public class JwtUtil {
         }
         return jwtDTO;
     }
+
     public static void checkForRequiredRole(HttpServletRequest request, ProfileRole... roleList) {
         ProfileRole jwtRole = (ProfileRole) request.getAttribute("role");
         boolean roleFound = false;

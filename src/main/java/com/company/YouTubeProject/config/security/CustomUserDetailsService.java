@@ -18,7 +18,6 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // adminjon_mazgi@gmail.com
         System.out.println("loadUserByUsername");
         Optional<ProfileEntity> optional = profileRepository.findByEmail(username);
         if (optional.isEmpty()) {
