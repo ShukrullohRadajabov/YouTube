@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/category")
 public class CategoryController {
     @Autowired
+
     private CategoryService service;
 
     @PostMapping("/private/adm")

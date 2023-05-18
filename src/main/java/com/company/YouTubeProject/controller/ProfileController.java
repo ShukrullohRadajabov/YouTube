@@ -16,7 +16,9 @@ public class ProfileController {
 
     @PostMapping({"/private/create/adm", "/private/create/adm/"})
     public ResponseEntity<ProfileDTO> create(@RequestBody ProfileDTO dto) {
-        return ResponseEntity.ok(profileService.create(dto));
+//        return ResponseEntity.ok(profileService.create(dto));
+
+        return null;
     }
     @PutMapping(value = "/public/updatePsw")
     public ResponseEntity<?> update(@RequestBody String password) {

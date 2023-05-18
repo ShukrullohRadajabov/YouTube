@@ -12,23 +12,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/auth")
 public class AuthController {
-<<<<<<< HEAD
-
-
-    @Autowired
-    private AuthService authService;
-
-
-    @PostMapping("")
-    public ResponseEntity<RegistrationResponseDTO> registration(@RequestBody RegistrationDTO dto) {
-        return ResponseEntity.ok(authService.registration(dto));
-    }
-
-    @PostMapping("/login")
-    public ResponseEntity<AuthResponseDTO> login(@RequestBody AuthDTO dto) {
-        return ResponseEntity.ok(authService.login(dto));
-    }
-=======
     @Autowired
     private AuthService authService;
 
@@ -40,6 +23,7 @@ public class AuthController {
     public ResponseEntity<RegistrationResponseDTO> registration(@RequestBody RegistrationDTO dto) {
         return ResponseEntity.ok(authService.registration(dto));
     }
+
     @GetMapping("/email/verification/{email}")
     public ResponseEntity<RegistrationResponseDTO> verification(@PathVariable("email") String text) {
         return ResponseEntity.ok(authService.emailVerification(text));

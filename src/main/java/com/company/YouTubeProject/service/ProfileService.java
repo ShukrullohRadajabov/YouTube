@@ -1,42 +1,35 @@
 package com.company.YouTubeProject.service;
 
+
 import com.company.YouTubeProject.dto.profile.ProfileDTO;
 import com.company.YouTubeProject.entity.ProfileEntity;
 import com.company.YouTubeProject.enums.GeneralStatus;
-import com.company.YouTubeProject.exeption.AppBadRequestException;
+import com.company.YouTubeProject.enums.ProfileRole;
 import com.company.YouTubeProject.exeption.MethodNotAllowedExeption;
 import com.company.YouTubeProject.repository.ProfileRepository;
-import com.company.YouTubeProject.util.MD5Util;
-import com.company.YouTubeProject.util.SpringSecurityUtil;
+
+import com.company.YouTubeProject.utill.MD5Util;
+import com.company.YouTubeProject.utill.SpringSecurityUtill;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import javax.sql.DataSource;
 import java.util.Optional;
 
 @Service
 public class ProfileService {
     @Autowired
     private ProfileRepository profileRepository;
+    @Qualifier("getDataSource")
+    @Autowired
+    private DataSource get;
 
-    public ProfileDTO create(ProfileDTO dto) {
-        isValidProfile(dto);
-        ProfileEntity entity = new ProfileEntity();
-        entity.setName(dto.getName());
-        entity.setSurname(dto.getSurname());
-        entity.setEmail(dto.getEmail());
-        entity.setRole(dto.getRole());
-        entity.setPassword(MD5Util.getMd5Hash(dto.getPassword()));
-        entity.setStatus(GeneralStatus.ACTIVE);
-        profileRepository.save(entity);
-        dto.setPassword(null);
-        dto.setId(entity.getId());
-        return dto;
-    }
 
     public Boolean update(String password) {
-        Integer profileId = get(SpringSecurityUtil.getProfileId()).getId();
-        return profileRepository.changePassword(password,profileId);
+//        Integer profileId = get(SpringSecurityUtill.getProfileId()).getId();
+//        return profileRepository.changePassword(password,profileId);
+        return null;
     }
 
     public void isValidProfile(ProfileDTO dto) {
@@ -46,17 +39,14 @@ public class ProfileService {
         }
     }
 
-    public ProfileEntity get(Integer profileId) {
-        Optional<ProfileEntity> optional = profileRepository.findById(profileId);
-        if (optional.isEmpty()) {
-            throw new AppBadRequestException("Profile not found: " + profileId);
-        }
-        return optional.get();
+    public Integer changePsw(String psw) {
+//        return profileRepository.changePsw(MD5Util.getMd5Hash(psw), SpringSecurityUtill.getProfileId());
+        return null;
     }
     public ProfileDTO findAll() {
-        Integer profileId = get(SpringSecurityUtil.getProfileId()).getId();
-        ProfileDTO dto = converToDTO(profileRepository.getAllId(profileId));
-        return dto;
+//        Integer profileId = get(SpringSecurityUtill.getProfileId()).getId();
+//        ProfileDTO dto = converToDTO(profileRepository.getAllId(profileId));
+        return null;
     }
     public ProfileDTO converToDTO(ProfileEntity entity) {
         ProfileDTO dto = new ProfileDTO();

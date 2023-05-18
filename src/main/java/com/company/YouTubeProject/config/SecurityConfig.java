@@ -1,6 +1,6 @@
 package com.company.YouTubeProject.config;
 
-import com.company.YouTubeProject.util.MD5Util;
+import com.company.YouTubeProject.utill.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -41,8 +41,12 @@ public class SecurityConfig {
             return authenticationProvider;
         }*/
     public static String[] AUTH_WHITELIST = {"/api/v1/*/public/**",
-            "/api/v1/auth/**"
+
+            "/api/v1/auth/**",
 //            "/api/v1/auth"
+            "/api/v1/auth/**",
+            "/api/v1/auth",
+            "/api/v1/attach/public/upload"
     };
     @Bean
     public AuthenticationProvider authenticationProvider() {
@@ -64,11 +68,11 @@ public class SecurityConfig {
                 .requestMatchers(AUTH_WHITELIST).permitAll()
                 .requestMatchers("/api/v1/*/public/**").permitAll()
                 .requestMatchers("/api/v1/auth/**").permitAll()
-                .requestMatchers("/api/v1/category/public/*").permitAll()
-                .requestMatchers(HttpMethod.PUT, "/api/v1/profile/private/*").hasAnyRole( "ADMIN")
-                .requestMatchers("/api/v1/category/private/**").hasAnyRole("ADMIN")
+                .requestMatchers("/api/v1/tag/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/v1/*/private/**").hasAnyRole( "ADMIN")
+                .requestMatchers(HttpMethod.POST, "/api/v1/tag/private/**").hasAnyRole( "ADMIN")
                 .anyRequest()
-                .authenticated().and().httpBasic() ;//.and().formLogin();
+                .authenticated() ;//.and().formLogin();
         return http.build();
     }
     @Bean
