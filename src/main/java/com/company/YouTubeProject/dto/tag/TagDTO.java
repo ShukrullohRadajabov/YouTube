@@ -1,4 +1,4 @@
-package com.company.YouTubeProject.dto;
+package com.company.YouTubeProject.dto.tag;
 
 import lombok.Data;
 import lombok.Getter;

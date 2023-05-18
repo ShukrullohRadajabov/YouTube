@@ -28,4 +28,5 @@ public class AttachEntity {
     @Column(name = "duration")
     private LocalTime duration;
 
+<<<<<<< HEAD
 }

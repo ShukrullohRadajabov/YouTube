@@ -76,6 +76,7 @@ public class MailSenderService {
         try {
             MimeMessageHelper helper = new MimeMessageHelper(msg, true);
             msg.setFrom(fromAccount);
+            MimeMessageHelper helper = new MimeMessageHelper(msg, true);
             helper.setTo(toAccount);
             helper.setSubject(subject);
             helper.setText(text, true);

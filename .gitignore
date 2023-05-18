@@ -32,13 +32,5 @@ build/
 ### VS Code ###
 .vscode/
 
-### My git Ignore
-*.mvn
-/mvnw
-/mvnw.cmd
-!**/src/main/resources/talablar.txt
-
-
-
-
-/src/main/resources/application-local.properties
+### Other ###
+src/main/resources/application-local.properties

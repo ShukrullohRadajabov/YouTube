@@ -1,7 +1,6 @@
 package com.company.YouTubeProject.service;
 
-import com.company.YouTubeProject.dto.TagDTO;
-import com.company.YouTubeProject.entity.ProfileEntity;
+import com.company.YouTubeProject.dto.tag.TagDTO;
 import com.company.YouTubeProject.entity.TagEntity;
 
 import com.company.YouTubeProject.exeption.AppBadRequestException;

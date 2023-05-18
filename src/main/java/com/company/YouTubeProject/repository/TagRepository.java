@@ -1,7 +1,5 @@
 package com.company.YouTubeProject.repository;
 
-import com.company.YouTubeProject.dto.TagDTO;
-import com.company.YouTubeProject.entity.ProfileEntity;
 import com.company.YouTubeProject.entity.TagEntity;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.Modifying;

@@ -40,13 +40,17 @@ public class ProfileService {
         }
     }
 
-    public Integer changePsw(String psw) {
-        return profileRepository.changePsw(MD5Util.getMd5Hash(psw), SpringSecurityUtil.getProfileId());
+    public ProfileEntity get(Integer profileId) {
+        Optional<ProfileEntity> optional = profileRepository.findById(profileId);
+        if (optional.isEmpty()) {
+            throw new AppBadRequestException("Profile not found: " + profileId);
+        }
+        return optional.get();
     }
-
-
-    public Integer changeNameSurname(String name, String surname) {
-        return profileRepository.changeNameSurname(name,surname,SpringSecurityUtil.getProfileId());
+    public ProfileDTO findAll() {
+        Integer profileId = get(SpringSecurityUtil.getProfileId()).getId();
+        ProfileDTO dto = converToDTO(profileRepository.getAllId(profileId));
+        return dto;
     }
 
     public ProfileDTO getProfileDetail() {
@@ -56,6 +60,7 @@ public class ProfileService {
         dto.setName(entity.getName());
         dto.setSurname(entity.getSurname());
         dto.setEmail(entity.getEmail());
+      //dto.setPhoto(entity.getPhoto);
         return dto;
     }
 }

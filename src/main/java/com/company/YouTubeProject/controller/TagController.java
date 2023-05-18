@@ -1,6 +1,6 @@
 package com.company.YouTubeProject.controller;
 
-import com.company.YouTubeProject.dto.TagDTO;
+import com.company.YouTubeProject.dto.tag.TagDTO;
 import com.company.YouTubeProject.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
