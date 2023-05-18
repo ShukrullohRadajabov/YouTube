@@ -2,6 +2,7 @@ package com.company.YouTubeProject.utill;
 
 ;
 import com.company.YouTubeProject.dto.jwt.JwtDTO;
+import com.company.YouTubeProject.dto.jwt.JwtEmailDTO;
 import com.company.YouTubeProject.enums.ProfileRole;
 import com.company.YouTubeProject.exps.MethodNotAllowedException;
 import io.jsonwebtoken.*;
@@ -108,6 +109,16 @@ public class JwtUtil {
         if (!roleFound) {
             throw new MethodNotAllowedException("Method not allowed");
         }
+    }
+
+    public static JwtEmailDTO decodeEmailChange(String token) {
+        JwtParser jwtParser = Jwts.parser();
+        jwtParser.setSigningKey(secretKey);
+        Jws<Claims> jws = jwtParser.parseClaimsJws(token);
+        Claims claims = jws.getBody();
+        String email = (String) claims.get("email");
+        Integer id = (Integer) claims.get("id");
+        return new JwtEmailDTO(email, id);
     }
 
 }

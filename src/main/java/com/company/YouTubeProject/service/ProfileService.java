@@ -7,6 +7,7 @@ import com.company.YouTubeProject.entity.ProfileEntity;
 import com.company.YouTubeProject.enums.GeneralStatus;
 import com.company.YouTubeProject.enums.ProfileRole;
 import com.company.YouTubeProject.exeption.MethodNotAllowedExeption;
+import com.company.YouTubeProject.exps.AppBadRequestException;
 import com.company.YouTubeProject.repository.ProfileRepository;
 
 import com.company.YouTubeProject.utill.MD5Util;
@@ -28,6 +29,9 @@ public class ProfileService {
 //        Integer profileId = get(SpringSecurityUtill.getProfileId()).getId();
 //        return profileRepository.changePassword(password,profileId);
         return null;
+
+    }
+
     public String create(ProfileAdminCreateDTO dto) {
         ProfileEntity entity = new ProfileEntity();
         entity.setName(dto.getName());
@@ -57,14 +61,14 @@ public class ProfileService {
         return optional.get();
     }
     public ProfileDTO findAll() {
-        Integer profileId = get(SpringSecurityUtil.getProfileId()).getId();
+        Integer profileId = get(SpringSecurityUtill.getProfileId()).getId();
         ProfileDTO dto = converToDTO(profileRepository.getAllId(profileId));
         return dto;
     }
 
     public ProfileDTO getProfileDetail() {
         ProfileDTO dto = new ProfileDTO();
-        ProfileEntity entity =  profileRepository.getProfileDetail(SpringSecurityUtil.getProfileId());
+        ProfileEntity entity =  profileRepository.getProfileDetail(SpringSecurityUtill.getProfileId());
         dto.setId(entity.getId());
         dto.setName(entity.getName());
         dto.setSurname(entity.getSurname());
