@@ -1,0 +1,29 @@
+### Tag
+POST localhost:8080/api/v1/tag/public/create
+Content-Type:  application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQzMTEwMDgsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2ODQzOTc0MDgsImlzcyI6Ikt1bnV6IHRlc3QgcG9ydGFsaSJ9.IorUm1LnZiubmKpJJuLkDp6hzGb3x9ePIkI0kFZDmRrHefTVx8n1zAPUXPnr3-d6g-VGxQlGrjA0ZUso-nzHZQ
+
+{
+  "name" : "rek"
+}
+
+### Update tag
+PUT localhost:8080/api/v1/tag/private/update
+Content-Type:  application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQzMTQ3NjksImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ0MDExNjksImlzcyI6Ikt1bnV6IHRlc3QgcG9ydGFsaSJ9.4H7wyESYKQQ9N07TZSJokc4_rC8x4MxbV6lYyI3IxQsMZpYXoheNTU9mCSDeyMCkYx8-P5dzGzg4GgGqUXSvjA
+
+{
+  "name" : "yes"
+}
+
+### Delete tag
+DELETE localhost:8080/api/v1/tag/private/delete/1
+Content-Type:  application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQzMTQ3NjksImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ0MDExNjksImlzcyI6Ikt1bnV6IHRlc3QgcG9ydGFsaSJ9.4H7wyESYKQQ9N07TZSJokc4_rC8x4MxbV6lYyI3IxQsMZpYXoheNTU9mCSDeyMCkYx8-P5dzGzg4GgGqUXSvjA
+
+
+
+### GET tag
+GET localhost:8080/api/v1/tag/public/getAll
+Content-Type:  application/json
+
