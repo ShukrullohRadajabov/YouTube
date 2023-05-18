@@ -3,8 +3,8 @@ POST localhost:8080/api/v1/auth
 Content-Type:  application/json
 
 {
-  "email": "uzokov29@gmail.com",
-  "password": "7"
+  "email": "muhammadyusufgapirov@gmail.com",
+  "password": "12345"
 }
 
 ### Login
@@ -25,8 +25,4 @@ Content-Type:  application/json
   "surname": "soliyev",
   "email": "oyatillo.soliyev03@gmail.com",
   "password": "777"
-  "name": "Mamurjon",
-  "surname": "Uzokov",
-  "email": "uzokov29@gmail.com",
-  "password": "7"
 }

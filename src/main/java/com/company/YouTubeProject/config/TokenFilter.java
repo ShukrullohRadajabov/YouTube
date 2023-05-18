@@ -1,9 +1,9 @@
 package com.company.YouTubeProject.config;
-
 import com.company.YouTubeProject.dto.jwt.JwtDTO;
 import com.company.YouTubeProject.util.JwtUtil;
 
 import io.jsonwebtoken.JwtException;
+import com.company.YouTubeProject.utill.JwtUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -92,6 +92,7 @@ public class TokenFilter extends OncePerRequestFilter {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.setHeader("Message", "Token Not Val" +
                     "id");
+            return;
         }
     }
 }

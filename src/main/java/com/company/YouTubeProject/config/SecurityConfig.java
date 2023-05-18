@@ -1,6 +1,6 @@
 package com.company.YouTubeProject.config;
 
-import com.company.YouTubeProject.util.MD5Util;
+import com.company.YouTubeProject.utill.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -68,7 +68,9 @@ public class SecurityConfig {
                 .requestMatchers(AUTH_WHITELIST).permitAll()
                 .requestMatchers("/api/v1/*/public/**").permitAll()
                 .requestMatchers("/api/v1/auth/**").permitAll()
+                .requestMatchers("/api/v1/tag/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/v1/*/private/**").hasAnyRole( "ADMIN")
+                .requestMatchers(HttpMethod.POST, "/api/v1/tag/private/**").hasAnyRole( "ADMIN")
                 .anyRequest()
                 .authenticated() ;//.and().formLogin();
         return http.build();

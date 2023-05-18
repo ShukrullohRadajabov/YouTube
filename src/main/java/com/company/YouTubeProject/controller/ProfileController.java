@@ -22,8 +22,10 @@ public class ProfileController {
     private AuthService authService;
 
     @PostMapping({"/private/create/adm", "/private/create/adm/"})
-    public ResponseEntity<?> create(@RequestBody ProfileAdminCreateDTO dto) {
-        return ResponseEntity.ok(profileService.create(dto));
+    public ResponseEntity<ProfileDTO> create(@RequestBody ProfileDTO dto) {
+//        return ResponseEntity.ok(profileService.create(dto));
+
+        return null;
     }
 
     @PutMapping("/changePsw")
