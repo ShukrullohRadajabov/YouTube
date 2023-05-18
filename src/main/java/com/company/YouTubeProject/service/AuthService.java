@@ -48,30 +48,6 @@ public class AuthService {
         return responseDTO;
     }
 
-    /*
-    public ProfileDTO register(ProfileDTO dto) {
-        Optional<ProfileEntity> optional = profileRepository.findByEmailAndPassword(dto.getEmail(),dto.getPassword());
-        if (optional.isPresent()) {
-            throw new ItemNotFoundException("This email or password already use :)");
-        }
-        ProfileEntity entity = new ProfileEntity();
-        entity.setName(dto.getName());
-        entity.setSurname(dto.getSurname());
-        entity.setPhone(dto.getPhone());
-        entity.setEmail(dto.getEmail());
-        entity.setPassword(MD5Util.getMd5Hash(dto.getPassword())); // MD5 ?
-        entity.setCreatedDate(LocalDateTime.now());
-        entity.setUpdatedDate(LocalDateTime.now());
-        entity.setPrtId(1);
-        entity.setVisible(true);
-        entity.setStatus(GeneralStatus.ACTIVE);
-        entity.setRole(ProfileRole.ADMIN);
-        profileRepository.save(entity);
-        dto.setPassword(null);
-        dto.setId(entity.getId());
-        return dto;
-    }
-    */
     public RegistrationResponseDTO registration(RegistrationDTO dto) {
         Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());
         if (optional.isPresent()) {

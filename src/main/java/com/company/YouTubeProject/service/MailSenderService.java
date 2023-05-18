@@ -1,16 +1,12 @@
 package com.company.YouTubeProject.service;
 
-import com.company.YouTubeProject.dto.registration.ChangeEmailDTO;
 import com.company.YouTubeProject.util.JwtUtil;
-import com.company.YouTubeProject.util.SpringSecurityUtil;
-
 import com.company.YouTubeProject.util.SpringSecurityUtil;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
-
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -42,7 +38,6 @@ public class MailSenderService {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("<h1 style=\"text-align: center\">Registration verification</h1>");
         stringBuilder.append("<br><br>");
-        // <p><a href="asd.dasdad.asdaasda">Click to the link to complete registration</a></p>
         stringBuilder.append("<p><a href=\"");
         stringBuilder.append(serverHost).append("/api/v1/auth/email/verification/");
         stringBuilder.append(JwtUtil.encode(toAccount)).append("\">");
@@ -54,7 +49,6 @@ public class MailSenderService {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("<h1 style=\"text-align: center\">Change email</h1>");
         stringBuilder.append("<br><br>");
-        // <p><a href="asd.dasdad.asdaasda">Click to the link to complete registration</a></p>
         stringBuilder.append("<p><a href=\"");
         stringBuilder.append(serverHost).append("/api/v1/auth/email/changeEmail/");
         stringBuilder.append(JwtUtil.encode(toAccount,SpringSecurityUtil.getProfileId())).append("\">");

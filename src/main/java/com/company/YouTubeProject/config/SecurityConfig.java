@@ -69,6 +69,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/v1/*/public/**").permitAll()
                 .requestMatchers("/api/v1/auth/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/v1/*/private/**").hasAnyRole( "ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/api/v1/*/private/**").hasAnyRole( "ADMIN")
                 .anyRequest()
                 .authenticated() ;//.and().formLogin();
         return http.build();

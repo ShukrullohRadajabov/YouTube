@@ -19,7 +19,6 @@ public class AttachController {
         return ResponseEntity.ok().body(byId);
     }
 
-
     @GetMapping("/public/upload")
     public ResponseEntity<AttachDTO> upload(@RequestParam("file") MultipartFile file) {
         AttachDTO res = attachService.upload(file);
