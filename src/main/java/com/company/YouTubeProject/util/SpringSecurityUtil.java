@@ -8,18 +8,22 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class SpringSecurityUtil {
     public static String getCurrentUserId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
-        return username;
+        return authentication.getName();
     }
     public static UserDetails getUserDetails() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        return userDetails;
+        return (UserDetails) authentication.getPrincipal();
     }
 
     public static Integer getProfileId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
         return userDetails.getProfileEntity().getId();
+    }
+
+    public static String getProfileEmail() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
+        return userDetails.getProfileEntity().getEmail();
     }
 }

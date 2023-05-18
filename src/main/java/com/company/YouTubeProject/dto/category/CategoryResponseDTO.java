@@ -1,4 +1,4 @@
-package com.company.YouTubeProject.dto.categoryDto;
+package com.company.YouTubeProject.dto.category;
 
 import com.company.YouTubeProject.entity.CategoryEntity;
 import lombok.*;

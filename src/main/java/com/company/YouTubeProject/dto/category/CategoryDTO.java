@@ -1,10 +1,10 @@
-package com.company.YouTubeProject.dto.categoryDto;
+package com.company.YouTubeProject.dto.category;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class CategoryDto {
+public class CategoryDTO {
     private String name;
 }
