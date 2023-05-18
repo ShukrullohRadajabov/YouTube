@@ -41,8 +41,12 @@ public class SecurityConfig {
             return authenticationProvider;
         }*/
     public static String[] AUTH_WHITELIST = {"/api/v1/*/public/**",
-            "/api/v1/auth/**"
+
+            "/api/v1/auth/**",
 //            "/api/v1/auth"
+            "/api/v1/auth/**",
+            "/api/v1/auth",
+            "/api/v1/attach/public/upload"
     };
     @Bean
     public AuthenticationProvider authenticationProvider() {
@@ -64,11 +68,9 @@ public class SecurityConfig {
                 .requestMatchers(AUTH_WHITELIST).permitAll()
                 .requestMatchers("/api/v1/*/public/**").permitAll()
                 .requestMatchers("/api/v1/auth/**").permitAll()
-                .requestMatchers("/api/v1/category/public/*").permitAll()
-                .requestMatchers(HttpMethod.PUT, "/api/v1/profile/private/*").hasAnyRole( "ADMIN")
-                .requestMatchers("/api/v1/category/private/**").hasAnyRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/api/v1/*/private/**").hasAnyRole( "ADMIN")
                 .anyRequest()
-                .authenticated().and().httpBasic() ;//.and().formLogin();
+                .authenticated() ;//.and().formLogin();
         return http.build();
     }
     @Bean

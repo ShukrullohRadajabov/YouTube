@@ -1,7 +1,7 @@
 package com.company.YouTubeProject.controller;
 
-import com.company.YouTubeProject.dto.categoryDto.CategoryDto;
-import com.company.YouTubeProject.dto.categoryDto.CategoryResponseDTO;
+import com.company.YouTubeProject.dto.category.CategoryDTO;
+import com.company.YouTubeProject.dto.category.CategoryResponseDTO;
 import com.company.YouTubeProject.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,13 +16,13 @@ public class CategoryController {
 
     @PostMapping("/private/adm")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    private ResponseEntity<CategoryResponseDTO> created(@RequestBody CategoryDto dto) {
+    private ResponseEntity<CategoryResponseDTO> created(@RequestBody CategoryDTO dto) {
         return ResponseEntity.ok(service.created(dto));
     }
 
     @PutMapping("/private/update/adm")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    private ResponseEntity<CategoryDto> update(@RequestBody CategoryDto dto) {
+    private ResponseEntity<CategoryDTO> update(@RequestBody CategoryDTO dto) {
         return ResponseEntity.ok(service.update(dto));
     }
 

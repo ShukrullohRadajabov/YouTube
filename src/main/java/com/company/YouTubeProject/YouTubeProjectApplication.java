@@ -8,6 +8,7 @@ public class YouTubeProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(YouTubeProjectApplication.class, args);
+
 	}
 
 }
