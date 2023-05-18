@@ -131,7 +131,7 @@
     1. Create Video (USER)
     2. Update Video Detail (USER and OWNER)
     3. Change Video Status (USER and OWNER)
-    4. Increase video_view Count by id
+    4. Increase     video_view Count by id
     5. Get Video Pagination by CategoryId
         VideShortInfo
     6. Search video by Title

@@ -6,14 +6,19 @@ Content-Type: multipart/form-data; boundary=WebAppBoundary
 --WebAppBoundary
 Content-Disposition: form-data; name="file"; filename="aaa.mp4"
 
-< C:\Users\USer\Videos\aaa.mp4
+< C:\Users\USer\Attachs\aaa.mp4
 
 
-### Get Video by id
+### Get Attach by id
 GET http://localhost:8080/api/v1/attach/get?id=f8aaa32e-e663-44af-b1d6-1a0573d8183a
 
 
-### Download Video by filename
+### Download Attach by filename
 GET http://localhost:8080/api/v1/attach/download/aaa.mp4
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQyNTI4MTAsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQzMzkyMTAsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.5AJnpPjl3pdgpxd8YHFPdnVrSvS6ucgVZQNXvGtgP5hrf7WjNgm2jZzwidSosEG2MgfkVqgIrD9ICjnMBjNG_A
+
+
+### Delete Attach by filename
+GET http://localhost:8080/api/v1/attach/delete/aaa.mp4
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQyNTI4MTAsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQzMzkyMTAsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.5AJnpPjl3pdgpxd8YHFPdnVrSvS6ucgVZQNXvGtgP5hrf7WjNgm2jZzwidSosEG2MgfkVqgIrD9ICjnMBjNG_A
 
