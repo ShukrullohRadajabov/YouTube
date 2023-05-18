@@ -6,14 +6,15 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
+
 @Getter
 @Setter
 @Table(name = "tag")
 @Entity
 public class TagEntity {
     @Id
-    @Column(name = "id", updatable = false, nullable = false)
-    @GenericGenerator(name = "uuid", strategy = "uuid4")
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     @Column(name = "name")
     private String name;

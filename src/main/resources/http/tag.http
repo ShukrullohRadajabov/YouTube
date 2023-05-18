@@ -1,7 +1,4 @@
 ### Create Tag
-POST http://localhost:8080/api/v1/tag/create
+POST http://localhost:8080/api/v1/tag/private/create?name=Buxara
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQzNDA1OTgsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ0MjY5OTgsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.v2GnYcnW2eNXeQ_8EmWD5Z34D1SxpgaRd7qBOmLxBk9htmD518biIACtqKW5WWzSlP6lbMjmK9dV7bwt-qH_cg
 Content-Type:  application/json
-
-{
-  "name": "Buxara"
-}

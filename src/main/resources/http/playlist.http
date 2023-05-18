@@ -1,0 +1,41 @@
+### Playlist create
+POST http://localhost:8080/api/v1/playlist/create
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQzNDA1OTgsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ0MjY5OTgsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.v2GnYcnW2eNXeQ_8EmWD5Z34D1SxpgaRd7qBOmLxBk9htmD518biIACtqKW5WWzSlP6lbMjmK9dV7bwt-qH_cg
+Content-Type:  application/json
+
+{
+  "channelId": "23",
+  "description": "shhs ",
+  "status": "PUBLIC",
+  "orderNumber": 1
+}
+
+### Playlist update
+PUT http://localhost:8080/api/v1/playlist/update
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ0MDkwNjAsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ0OTU0NjAsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.i6CUKjZ3jMsAf35ea3lGfIFYV_4-twScohcqS4SjQOD0zLgQCVsbVeLSQZonN6qkjYI4iHhCRC7rSFsqh_snMw
+Content-Type:  application/json
+
+{
+  "id" : "da58cff9-12fa-41bf-8dc1-711a47afe958",
+  "channelId": "wqfdqwf212",
+  "description": "update method check",
+  "status": "PUBLIC",
+  "orderNumber": 1
+}
+
+### Playlist change-status
+PUT http://localhost:8080/api/v1/playlist/update-status?id=ad24b49b-926f-457d-bf9d-d50eacf0ae7e
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ0MTMzMjEsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ0OTk3MjEsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.MhzNdyReAMTkbWOadb04YxMU4Q2epSAcZ2CnYTpIbZNhcU5p_pbF8E65jNuXPZa80cllmdcHzh8WPe1vgUUqUA
+Content-Type:  application/json
+
+
+### Playlist delete / change visible
+PUT http://localhost:8080/api/v1/playlist/delete?id=ad24b49b-926f-457d-bf9d-d50eacf0ae7e
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ0MTI4ODksImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ0OTkyODksImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.2ptHnh3DQ59MtOYDPHhYAO_rdd5pf95UpmU40A1coRt70obwBYGE_TVcYxzWlRpjo_ZoktV544-rtgDojqjgwg
+Content-Type:  application/json
+
+### Paging
+GET http://localhost:8080/api/v1/playlist/paging
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ0MTg4MTUsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ1MDUyMTUsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.crp1OU2fLXYkmpjY4Yl2-FG4a38DS5Eonj7gTi3a_kOgJhOWztvS6BHDCV09PhKpaAS6QTn7MW1iVreFehO9mg
+Content-Type:  application/json
+

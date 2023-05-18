@@ -12,5 +12,5 @@ import java.time.LocalDateTime;
 public class TagDTO {
     private String id;
     private String name;
-    private LocalDateTime createdDate;
+    private LocalDateTime createdDate=LocalDateTime.now();
 }

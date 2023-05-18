@@ -11,18 +11,17 @@ import org.springframework.web.bind.annotation.*;
 public class TagController {
     @Autowired
     private TagService tagService;
-    @PostMapping("/create")
-    public ResponseEntity<?> create(@PathVariable("name") String name) {
+    @PostMapping("/private/create")
+    public ResponseEntity<?> create(@RequestParam("name") String name) {
         return ResponseEntity.ok(tagService.create(name));
     }
     @DeleteMapping("/delete")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<?> delete(@PathVariable("name") String name) {
+    public ResponseEntity<?> delete(@RequestParam("name") String name) {
         return ResponseEntity.ok(tagService.delete(name));
     }
 //    @PutMapping("/update")
 //    @PreAuthorize("hasRole('ROLE_ADMIN')")
-//    public ResponseEntity<?> update(@PathVariable("name") String name) {
+//    public ResponseEntity<?> update(@RequestParam("name") String name) {
 //        return ResponseEntity.ok(tagService.update(name));
 //    }
     @GetMapping("/list")
