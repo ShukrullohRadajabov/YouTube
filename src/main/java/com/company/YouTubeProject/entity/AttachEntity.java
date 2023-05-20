@@ -29,6 +29,4 @@ public class AttachEntity {
     private LocalTime duration;
 
 }
-=======
-}
->>>>>>> master
+

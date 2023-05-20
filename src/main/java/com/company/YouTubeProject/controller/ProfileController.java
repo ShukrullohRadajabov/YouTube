@@ -30,7 +30,9 @@ public class ProfileController {
 
     @PutMapping("/changePsw")
     public ResponseEntity<?> changePsw (@RequestBody ProfilePswDTO dto) {
-        return ResponseEntity.ok(profileService.changePsw(dto.getPsw()));
+//        return ResponseEntity.ok(profileService.changePsw(dto.getPsw()));
+
+        return null;
     }
 
     @PutMapping("/changeEmail")
@@ -40,7 +42,8 @@ public class ProfileController {
 
     @PutMapping("/changeNameSurname")
     public ResponseEntity<?> changeNameSurname (@RequestBody ProfileUpdateDTO dto) {
-        return ResponseEntity.ok(profileService.changeNameSurname(dto.getName(),dto.getSurname()));
+//        return ResponseEntity.ok(profileService.changeNameSurname(dto.getName(),dto.getSurname()));
+        return null;
     }
 
     @GetMapping(value = "/getProfileDetail")

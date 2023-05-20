@@ -24,23 +24,7 @@ public class SecurityConfig {
     @Autowired
     private TokenFilter tokenFilter;
 
-    /*    @Bean
-        public AuthenticationProvider authenticationProvider() {
-            // authentication
-            // login,password ACTIVE,
-            String password = UUID.randomUUID().toString();
-            System.out.println("User Pasword mazgi: " + password);
 
-            UserDetails user = User.builder()
-                    .username("user")
-                    .password("{noop}" + password)
-                    .roles("USER")
-                    .build();
-
-            final DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-            authenticationProvider.setUserDetailsService(new InMemoryUserDetailsManager(user));
-            return authenticationProvider;
-        }*/
     public static String[] AUTH_WHITELIST = {"/api/v1/*/public/**",
 
             "/api/v1/auth/**",

@@ -62,8 +62,8 @@ public class ProfileService {
     }
     public ProfileDTO findAll() {
         Integer profileId = get(SpringSecurityUtill.getProfileId()).getId();
-        ProfileDTO dto = converToDTO(profileRepository.getAllId(profileId));
-        return dto;
+//        ProfileDTO dto = converToDTO(profileRepository.getAllId(profileId));
+        return null;
     }
 
     public ProfileDTO getProfileDetail() {
