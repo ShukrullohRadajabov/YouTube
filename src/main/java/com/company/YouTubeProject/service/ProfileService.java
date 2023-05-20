@@ -1,8 +1,9 @@
 package com.company.YouTubeProject.service;
 
+import com.company.YouTubeProject.dto.channel.UpdateImageDTO;
 import com.company.YouTubeProject.dto.profile.ProfileAdminCreateDTO;
+import com.company.YouTubeProject.dto.profile.ProfileAttachDTO;
 import com.company.YouTubeProject.dto.profile.ProfileDTO;
-import com.company.YouTubeProject.dto.profile.ProfilePswDTO;
 import com.company.YouTubeProject.entity.ProfileEntity;
 import com.company.YouTubeProject.enums.GeneralStatus;
 import com.company.YouTubeProject.enums.ProfileRole;
@@ -19,6 +20,8 @@ import java.util.Optional;
 public class ProfileService {
     @Autowired
     private ProfileRepository profileRepository;
+    @Autowired
+    private AttachService attachService;
 
     public String create(ProfileAdminCreateDTO dto) {
         ProfileEntity entity = new ProfileEntity();
@@ -49,6 +52,9 @@ public class ProfileService {
     public Integer changeNameSurname(String name, String surname) {
         return profileRepository.changeNameSurname(name,surname,SpringSecurityUtil.getProfileId());
     }
+    public Integer updatePhoto(ProfileAttachDTO dto) {
+        return profileRepository.updatePhoto(dto.getPhotoId(),SpringSecurityUtil.getProfileId());
+    }
 
     public ProfileDTO getProfileDetail() {
         ProfileDTO dto = new ProfileDTO();
@@ -57,6 +63,7 @@ public class ProfileService {
         dto.setName(entity.getName());
         dto.setSurname(entity.getSurname());
         dto.setEmail(entity.getEmail());
+        dto.setPhoto(attachService.getAttachLink(entity.getPhotoId()));
         return dto;
     }
 }

@@ -1,9 +1,7 @@
 package com.company.YouTubeProject.controller;
 
-import com.company.YouTubeProject.dto.profile.ProfileAdminCreateDTO;
-import com.company.YouTubeProject.dto.profile.ProfileDTO;
-import com.company.YouTubeProject.dto.profile.ProfilePswDTO;
-import com.company.YouTubeProject.dto.profile.ProfileUpdateDTO;
+import com.company.YouTubeProject.dto.channel.UpdateImageDTO;
+import com.company.YouTubeProject.dto.profile.*;
 import com.company.YouTubeProject.dto.registration.ChangeEmailDTO;
 import com.company.YouTubeProject.service.AuthService;
 import com.company.YouTubeProject.service.ProfileService;
@@ -39,6 +37,10 @@ public class ProfileController {
     @PutMapping("/changeNameSurname")
     public ResponseEntity<?> changeNameSurname (@RequestBody ProfileUpdateDTO dto) {
         return ResponseEntity.ok(profileService.changeNameSurname(dto.getName(),dto.getSurname()));
+    }
+    @PutMapping("/updatePhoto")
+    public ResponseEntity<?> updatePhoto(@RequestBody ProfileAttachDTO dto) {
+        return ResponseEntity.ok(profileService.updatePhoto(dto));
     }
 
     @GetMapping(value = "/getProfileDetail")

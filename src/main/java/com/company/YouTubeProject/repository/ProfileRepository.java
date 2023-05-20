@@ -28,7 +28,11 @@ public interface ProfileRepository extends CrudRepository<ProfileEntity, Integer
     @Modifying
     @Query("update ProfileEntity set name =:name,surname =:surname where id = :id")
     Integer changeNameSurname(@Param("name") String name,@Param("surname") String surname, @Param("id") Integer id);
+    @Transactional
+    @Modifying
+    @Query("update ProfileEntity set photoId = :photoId where id = :id")
+    Integer updatePhoto(@Param("photoId") String photoId, @Param("id") Integer id);
 
-    @Query("SELECT new ProfileEntity(p.id,p.name,p.surname,p.email) FROM ProfileEntity as p where p.id = :id")
+    @Query("SELECT new ProfileEntity(p.id,p.name,p.surname,p.email,p.photo) FROM ProfileEntity as p where p.id = :id")
     ProfileEntity getProfileDetail(@Param("id") Integer id);
 }

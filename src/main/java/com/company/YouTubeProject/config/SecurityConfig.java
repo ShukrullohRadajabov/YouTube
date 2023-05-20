@@ -60,10 +60,6 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // authorization
-        // URL ,API  Permission
-        // /api/v1/article/private/* - MODERATOR
-        // /api/v1/article//private/{id} - POST - MODERATOR
         http.csrf().disable().cors().disable();
         http.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
         http.authorizeHttpRequests()

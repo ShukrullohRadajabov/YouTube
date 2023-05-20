@@ -29,6 +29,7 @@ public class AuthService {
     @Autowired
     private MailSenderService mailSenderService;
 
+
     public AuthResponseDTO login(AuthDTO dto) {
         Optional<ProfileEntity> optional = profileRepository.findByEmailAndPassword(
                 dto.getEmail(),
@@ -60,6 +61,7 @@ public class AuthService {
         entity.setEmail(dto.getEmail());
         entity.setPassword(MD5Util.getMd5Hash(dto.getPassword()));
         entity.setStatus(GeneralStatus.REGISTER);
+        entity.setPhotoId(dto.getPhotoId());
         mailSenderService.sendRegistrationEmailMime(dto.getEmail());
         profileRepository.save(entity);
         String s = "Verification link was send to email: " + dto.getEmail();

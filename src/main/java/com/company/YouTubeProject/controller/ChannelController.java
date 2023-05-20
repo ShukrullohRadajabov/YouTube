@@ -3,6 +3,7 @@ package com.company.YouTubeProject.controller;
 import com.company.YouTubeProject.dto.channel.ChannelCreateDTO;
 import com.company.YouTubeProject.dto.channel.ChannelDTO;
 import com.company.YouTubeProject.dto.channel.ChannelUpdateDTO;
+import com.company.YouTubeProject.dto.channel.UpdateImageDTO;
 import com.company.YouTubeProject.dto.profile.ProfileDTO;
 import com.company.YouTubeProject.dto.profile.ProfilePswDTO;
 import com.company.YouTubeProject.service.ChannelService;
@@ -29,6 +30,14 @@ public class ChannelController {
     public ResponseEntity<?> update(@RequestBody ChannelUpdateDTO dto) {
         return ResponseEntity.ok(channelService.update(dto));
     }
+    @PutMapping("/updatePhoto")
+    public ResponseEntity<?> updatePhoto(@RequestBody UpdateImageDTO dto) {
+        return ResponseEntity.ok(channelService.updatePhoto(dto));
+    }
+    @PutMapping("/updateBanner")
+    public ResponseEntity<?> updateBanner(@RequestBody UpdateImageDTO dto) {
+        return ResponseEntity.ok(channelService.updateBanner(dto));
+    }
 
     @PutMapping(value = "/private/paging")
     public ResponseEntity<Page<ChannelDTO>> paging(@RequestParam(value = "page", defaultValue = "1") int page,
@@ -36,7 +45,7 @@ public class ChannelController {
         Page<ChannelDTO> response = channelService.pagingtion(page, size);
         return ResponseEntity.ok(response);
     }
-    @GetMapping(value = "/getChannelDetail/{id}")
+    @PutMapping(value = "/getChannelDetail/{id}")
     public ResponseEntity<ChannelDTO> getChannelDetail(@PathVariable("id") String channelId) {
         return ResponseEntity.ok(channelService.getChannelDetail(channelId));
     }
@@ -44,7 +53,7 @@ public class ChannelController {
     public ResponseEntity<?> updateStatus(@PathVariable("id") String channelId) {
         return ResponseEntity.ok(channelService.updateStatus(channelId));
     }
-    @PostMapping(value = "/userChannelList")
+    @GetMapping(value = "/userChannelList")
     public ResponseEntity<?> userChannelList() {
         List<ChannelDTO> list = channelService.userChannelList();
         return ResponseEntity.ok(list);

@@ -3,6 +3,7 @@ package com.company.YouTubeProject.service;
 import com.company.YouTubeProject.dto.channel.ChannelCreateDTO;
 import com.company.YouTubeProject.dto.channel.ChannelDTO;
 import com.company.YouTubeProject.dto.channel.ChannelUpdateDTO;
+import com.company.YouTubeProject.dto.channel.UpdateImageDTO;
 import com.company.YouTubeProject.entity.ChannelEntity;
 import com.company.YouTubeProject.enums.ChannelStatus;
 import com.company.YouTubeProject.enums.ProfileRole;
@@ -34,7 +35,6 @@ public class ChannelService {
     }
 
     public Integer update(ChannelUpdateDTO dto) {
-        get(dto.getId());
         return channelRepository.update(dto.getName(), dto.getDescription(), dto.getId());
     }
 
@@ -45,10 +45,16 @@ public class ChannelService {
         }
         return optional.get();
     }
+    public Integer updatePhoto(UpdateImageDTO dto) {
+        return channelRepository.updateImage(dto.getImageId(),dto.getId());
+    }
+    public Integer updateBanner(UpdateImageDTO dto) {
+        return channelRepository.updateBanner(dto.getImageId(),dto.getId());
+    }
 
     public Page<ChannelDTO> pagingtion(int page, int size) {
-        Sort sort = Sort.by(Sort.Direction.DESC, "region");
-        Pageable pageable = PageRequest.of(page - 1, size, sort);
+        //Sort sort = Sort.by(Sort.Direction.DESC, "created_date");
+        Pageable pageable = PageRequest.of(page - 1, size);//, sort
         Page<ChannelEntity> pageObj = channelRepository.findAll(pageable);
         long totalCount = pageObj.getTotalElements();
         List<ChannelEntity> entityList = pageObj.getContent();
@@ -58,7 +64,6 @@ public class ChannelService {
     }
 
     public ChannelDTO getChannelDetail(String channelId) {
-        get(channelId);
         return convertToDTO(channelRepository.getChannelDetail(channelId));
     }
 
@@ -66,16 +71,16 @@ public class ChannelService {
         ProfileRole role = SpringSecurityUtil.getProfileRole();
         ChannelEntity entity = get(channelId);
         if (role.equals(ProfileRole.ROLE_USER) && entity.getStatus().equals(ChannelStatus.ACTIVE)) {
-            channelRepository.updateStatus(ChannelStatus.NONE.toString(), channelId);
+            channelRepository.updateStatus(ChannelStatus.NONE, channelId);
             return "Changed TO NONE";
         }
         if ((role.equals(ProfileRole.ROLE_USER) && entity.getStatus().equals(ChannelStatus.NONE) ||
                 (role.equals(ProfileRole.ROLE_ADMIN) && entity.getStatus().equals(ChannelStatus.BLOCK)))) {
-            channelRepository.updateStatus(ChannelStatus.ACTIVE.toString(), channelId);
+            channelRepository.updateStatus(ChannelStatus.ACTIVE, channelId);
             return "Changed TO ACTIVE";
         }
         if (role.equals(ProfileRole.ROLE_ADMIN) && entity.getStatus().equals(ChannelStatus.ACTIVE)) {
-            channelRepository.updateStatus(ChannelStatus.BLOCK.toString(), channelId);
+            channelRepository.updateStatus(ChannelStatus.BLOCK, channelId);
             return "Changed TO BLOCK";
         }
         return "Error";
@@ -111,6 +116,7 @@ public class ChannelService {
         dto.setProfileId(entity.getProfileId());
         return dto;
     }
+
 
 
 }
