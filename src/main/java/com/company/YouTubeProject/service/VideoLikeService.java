@@ -16,4 +16,10 @@ public class VideoLikeService {
         entity.setCreatedDate(dto.getCreated_date());
         return dto;
     }
+
+    public VideoLikeDTO remove(VideoLikeDTO dto) {
+        VideoLikeEntity entity=new VideoLikeEntity();
+
+        return dto;
+    }
 }

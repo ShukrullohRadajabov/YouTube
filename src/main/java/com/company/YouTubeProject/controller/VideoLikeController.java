@@ -18,10 +18,14 @@ public class VideoLikeController {
     @Autowired
     private VideoLikeService service;
 
-    @PostMapping("/private/adm")
+    @PostMapping("/public/createlike")
     private ResponseEntity<VideoLikeDTO> created(@RequestBody VideoLikeDTO dto) {
         return ResponseEntity.ok(service.create(dto));
     }
 
+    @PostMapping("/public/remove")
+    private ResponseEntity<VideoLikeDTO> remove(@RequestBody VideoLikeDTO dto) {
+        return ResponseEntity.ok(service.remove(dto));
+    }
 
 }
