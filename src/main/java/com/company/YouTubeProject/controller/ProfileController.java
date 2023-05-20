@@ -33,7 +33,8 @@ public class ProfileController {
 
     @PutMapping("/changeEmail")
     public ResponseEntity<?> changeEmail (@RequestBody ChangeEmailDTO dto) {
-        return ResponseEntity.ok(authService.changeEmail(dto));
+//        return ResponseEntity.ok(authService.changeEmail(dto));
+        return null;
     }
 
     @PutMapping("/changeNameSurname")

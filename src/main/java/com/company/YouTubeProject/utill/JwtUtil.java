@@ -1,7 +1,7 @@
 package com.company.YouTubeProject.utill;
 
-import com.company.YouTubeProject.dto.JwtDTO;
 ;
+import com.company.YouTubeProject.dto.jwt.JwtDTO;
 import com.company.YouTubeProject.enums.ProfileRole;
 import com.company.YouTubeProject.exps.MethodNotAllowedException;
 import io.jsonwebtoken.*;
