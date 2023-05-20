@@ -126,7 +126,7 @@
             id,name,description,status(private,public),order_num,
             channel(id,name,photo(id,url), profile(id,name,surname,photo(id,url)))
 
----------------
+-----------------
 7. Video
     1. Create Video (USER)
     2. Update Video Detail (USER and OWNER)
