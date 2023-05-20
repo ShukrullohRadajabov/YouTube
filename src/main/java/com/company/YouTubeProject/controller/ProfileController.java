@@ -7,11 +7,13 @@ import com.company.YouTubeProject.dto.profile.ProfileUpdateDTO;
 import com.company.YouTubeProject.dto.registration.ChangeEmailDTO;
 import com.company.YouTubeProject.service.AuthService;
 import com.company.YouTubeProject.service.ProfileService;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping( "/api/v1/profile")
@@ -21,11 +23,12 @@ public class ProfileController {
     @Autowired
     private AuthService authService;
 
+    private static  final Logger LOGGER= LoggerFactory.getLogger(ProfileController.class);
+
+
     @PostMapping({"/private/create/adm", "/private/create/adm/"})
     public ResponseEntity<ProfileDTO> create(@RequestBody ProfileDTO dto) {
-//        return ResponseEntity.ok(profileService.create(dto));
-
-        return null;
+        return ResponseEntity.ok(profileService.create(dto));
     }
 
     @PutMapping("/changePsw")

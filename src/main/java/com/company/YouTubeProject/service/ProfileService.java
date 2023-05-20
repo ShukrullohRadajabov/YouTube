@@ -32,18 +32,18 @@ public class ProfileService {
 
     }
 
-    public String create(ProfileAdminCreateDTO dto) {
+    public ProfileDTO create(ProfileDTO dto) {
         ProfileEntity entity = new ProfileEntity();
         entity.setName(dto.getName());
         entity.setSurname(dto.getSurname());
         entity.setEmail(dto.getEmail());
         entity.setStatus(GeneralStatus.BLOCK);
         if (dto.getRole().equals(ProfileRole.ROLE_USER)){
-            return "You can't Create User";
+            return null;
         }
         entity.setRole(dto.getRole());
         profileRepository.save(entity);
-        return "Created";
+        return dto;
     }
 
     public void isValidProfile(ProfileDTO dto) {
