@@ -5,7 +5,6 @@ import com.company.YouTubeProject.dto.auth.AuthResponseDTO;
 import com.company.YouTubeProject.dto.jwt.JwtEmailDTO;
 import com.company.YouTubeProject.dto.registration.ChangeEmailDTO;
 import com.company.YouTubeProject.dto.registration.MailChangeResponseDTO;
-
 import com.company.YouTubeProject.dto.registration.RegistrationDTO;
 import com.company.YouTubeProject.dto.registration.RegistrationResponseDTO;
 import com.company.YouTubeProject.entity.ProfileEntity;
@@ -14,6 +13,8 @@ import com.company.YouTubeProject.enums.ProfileRole;
 import com.company.YouTubeProject.exeption.AppBadRequestException;
 import com.company.YouTubeProject.exeption.ItemNotFoundException;
 import com.company.YouTubeProject.repository.ProfileRepository;
+;
+import com.company.YouTubeProject.util.*;
 import com.company.YouTubeProject.util.JwtUtil;
 import com.company.YouTubeProject.util.MD5Util;
 import com.company.YouTubeProject.util.SpringSecurityUtil;
@@ -50,8 +51,8 @@ public class AuthService {
     }
 
 
-=======
->>>>>>> master
+
+
     public AuthResponseDTO login(AuthDTO dto) {
         Optional<ProfileEntity> optional = profileRepository.findByEmailAndPassword(
                 dto.getEmail(),
@@ -71,34 +72,8 @@ public class AuthService {
         return responseDTO;
     }
 
-        responseDTO.setJwt(JwtUtil.encode(null, entity.getRole()));
-        return responseDTO;
-    }
 
-    /*
-    public ProfileDTO register(ProfileDTO dto) {
-        Optional<ProfileEntity> optional = profileRepository.findByEmailAndPassword(dto.getEmail(),dto.getPassword());
-        if (optional.isPresent()) {
-            throw new ItemNotFoundException("This email or password already use :)");
-        }
-        ProfileEntity entity = new ProfileEntity();
-        entity.setName(dto.getName());
-        entity.setSurname(dto.getSurname());
-        entity.setPhone(dto.getPhone());
-        entity.setEmail(dto.getEmail());
-        entity.setPassword(MD5Util.getMd5Hash(dto.getPassword())); // MD5 ?
-        entity.setCreatedDate(LocalDateTime.now());
-        entity.setUpdatedDate(LocalDateTime.now());
-        entity.setPrtId(1);
-        entity.setVisible(true);
-        entity.setStatus(GeneralStatus.ACTIVE);
-        entity.setRole(ProfileRole.ADMIN);
-        profileRepository.save(entity);
-        dto.setPassword(null);
-        dto.setId(entity.getId());
-        return dto;
-    }
-    */
+
     public RegistrationResponseDTO registration(RegistrationDTO dto) {
         Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());
         if (optional.isPresent()) {
@@ -118,7 +93,7 @@ public class AuthService {
         return new RegistrationResponseDTO(s);
     }
     public MailChangeResponseDTO changeEmail(ChangeEmailDTO dto) {
-        Optional<ProfileEntity> optional = profileRepository.findByEmail(SpringSecurityUtill.getProfileEmail());
+        Optional<ProfileEntity> optional = profileRepository.findByEmail(SpringSecurityUtil.getProfileEmail());
         if (optional.isEmpty()) {
             throw new ItemNotFoundException("Email not found mazgi.");
         }
@@ -153,4 +128,3 @@ public class AuthService {
     }
 
 }
-

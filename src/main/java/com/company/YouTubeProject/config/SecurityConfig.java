@@ -1,6 +1,5 @@
 package com.company.YouTubeProject.config;
 
-import com.company.YouTubeProject.utill.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -25,23 +24,7 @@ public class SecurityConfig {
     @Autowired
     private TokenFilter tokenFilter;
 
-    /*    @Bean
-        public AuthenticationProvider authenticationProvider() {
-            // authentication
-            // login,password ACTIVE,
-            String password = UUID.randomUUID().toString();
-            System.out.println("User Pasword mazgi: " + password);
 
-            UserDetails user = User.builder()
-                    .username("user")
-                    .password("{noop}" + password)
-                    .roles("USER")
-                    .build();
-
-            final DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-            authenticationProvider.setUserDetailsService(new InMemoryUserDetailsManager(user));
-            return authenticationProvider;
-        }*/
     public static String[] AUTH_WHITELIST = {"/api/v1/*/public/**",
 
             "/api/v1/auth/**",
@@ -82,7 +65,7 @@ public class SecurityConfig {
             }
             @Override
             public boolean matches(CharSequence rawPassword, String encodedPassword) {
-                if (MD5Util.getMd5Hash(rawPassword.toString()).equals(encodedPassword)) {
+                if (MD5.getMd5Hash(rawPassword.toString()).equals(encodedPassword)) {
                     return true;
                 }
                 return false;

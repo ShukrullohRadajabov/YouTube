@@ -1,11 +1,13 @@
 package com.company.YouTubeProject.service;
 
-import com.company.YouTubeProject.dto.tag.TagDTO;
+import com.company.YouTubeProject.dto.TagDTO;
+import com.company.YouTubeProject.entity.ProfileEntity;
 import com.company.YouTubeProject.entity.TagEntity;
+import com.company.YouTubeProject.util.*;
 
 import com.company.YouTubeProject.exeption.AppBadRequestException;
 import com.company.YouTubeProject.repository.TagRepository;
-import com.company.YouTubeProject.utill.SpringSecurityUtill;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +32,7 @@ public class TagService {
     }
 
     public Integer update(String name) {
-        Integer tagID = get(SpringSecurityUtill.getProfileId()).getId();
+        Integer tagID = get(SpringSecurityUtil.getProfileId()).getId();
         return tagRepository.changename(name,tagID);
 
     }
