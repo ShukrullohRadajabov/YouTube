@@ -16,7 +16,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/channel")
-
 public class ChannelController {
     @Autowired
     private ChannelService channelService;

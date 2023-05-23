@@ -1,6 +1,5 @@
 package com.company.YouTubeProject.service;
 
-import com.company.YouTubeProject.dto.channel.UpdateImageDTO;
 import com.company.YouTubeProject.dto.profile.ProfileAdminCreateDTO;
 import com.company.YouTubeProject.dto.profile.ProfileAttachDTO;
 import com.company.YouTubeProject.dto.profile.ProfileDTO;

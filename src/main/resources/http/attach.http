@@ -4,9 +4,9 @@ POST http://localhost:8080/api/v1/attach/public/upload
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 --WebAppBoundary
-Content-Disposition: form-data; name="file"; filename="2.jpeg"
+Content-Disposition: form-data; name="file"; filename="3.mp4"
 
-< C:\Users\Mamurjon\Downloads\2.jpeg
+< C:\Users\Mamurjon\Downloads\Video\3.mp4
 
 
 ### Get Video by id
