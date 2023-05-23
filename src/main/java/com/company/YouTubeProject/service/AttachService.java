@@ -89,4 +89,24 @@ public class AttachService {
             throw new ItemNotFoundException("Attach not ound");
         });
     }
+    public byte[] open_general(String attachName) {
+        int lastIndex = attachName.lastIndexOf(".");
+        String id = attachName.substring(0,lastIndex);
+        AttachEntity attachEntity = get(id);
+        byte[] data;
+        try {
+            Path file = Paths.get("attaches/" + attachEntity.getPath() + "/" + attachName);
+            data = Files.readAllBytes(file);
+            return data;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new byte[0];
+    }
+    public AttachDTO getAttachLink(String attachId) {
+        AttachDTO dto = new AttachDTO();
+        dto.setId(attachId);
+        dto.setUrl(serverHost + "/api/v1/attach/open/" + attachId);
+        return dto;
+    }
 }

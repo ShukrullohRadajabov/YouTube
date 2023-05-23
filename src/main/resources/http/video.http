@@ -1,0 +1,67 @@
+### Create video
+POST localhost:8080/api/v1/video/create
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ4Mjc3NDAsImVtYWlsIjoidXpva292MjlAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY4NDkxNDE0MCwiaXNzIjoiWW91dHViZSB0ZXN0IHBvcnRhbGkifQ.f9a2j7TxZ9RS357Hxsk4LnjSnJWePhXuDILv3d5PLCQJYYlHXyD_oJGp8x1CZh_QMAnW2frTILQ3LD_c5HfkKA
+Content-Type:  application/json
+
+{
+  "title": "video1",
+  "description": "video about Computer",
+  "categoryId": "2",
+  "previewId": "dd852e05-3114-40ef-b771-5f50166359eb",
+  "videoId": "f3d82d1f-b72e-468d-b37e-5ff2e67a459b",
+  "channelId": "a78f617f-010a-4f5b-a2ed-50cc2858083e"
+}
+//{
+//  "title": "video",
+//  "description": "video about Juniors",
+//  "categoryId": "1",
+//  "previewId": "89523e45-6fd0-45ed-acaa-779ecce102e1",
+//  "videoId": "cc009302-dc1c-4090-b280-a376593e81e3",
+//  "channelId": "a78f617f-010a-4f5b-a2ed-50cc2858083e"
+//}
+
+### Create video
+POST localhost:8080/api/v1/video/create
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ4Mjc5MzMsImVtYWlsIjoibWFtdXJqb251em9rb3Y1NjhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfTU9ERVJBVE9SIiwiZXhwIjoxNjg0OTE0MzMzLCJpc3MiOiJZb3V0dWJlIHRlc3QgcG9ydGFsaSJ9.C1e1WeXjYP36obqgc00zwS3v7e0GUF8k2oteLnzhQqNmDP0jQLypyQPWwiF1p6SQdrCnd6ChklHHl6WFjxjYeQ
+Content-Type:  application/json
+
+{
+  "title": "video3",
+  "description": "video about Motivation",
+  "categoryId": "1",
+  "previewId": "ddb56733-e1fb-4b39-b0db-0eba5d3655a4",
+  "videoId": "f3d82d1f-b72e-468d-b37e-5ff2e67a459b",
+  "channelId": "235769a4-9ed6-40ec-9a47-b2817b7f5f05"
+}
+
+### Update video
+PUT localhost:8080/api/v1/video/update/ee5269a4-26ac-4601-a76d-0c3173dd62fd
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ4Mjc5MzMsImVtYWlsIjoibWFtdXJqb251em9rb3Y1NjhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfTU9ERVJBVE9SIiwiZXhwIjoxNjg0OTE0MzMzLCJpc3MiOiJZb3V0dWJlIHRlc3QgcG9ydGFsaSJ9.C1e1WeXjYP36obqgc00zwS3v7e0GUF8k2oteLnzhQqNmDP0jQLypyQPWwiF1p6SQdrCnd6ChklHHl6WFjxjYeQ
+Content-Type:  application/json
+
+{
+  "title": "video5",
+  "description": "video about Computer",
+  "categoryId": "1",
+  "previewId": "89523e45-6fd0-45ed-acaa-779ecce102e1",
+  "videoId": "87ebb959-297c-4274-a4dd-c0fd95b01107",
+  "channelId": "a78f617f-010a-4f5b-a2ed-50cc2858083e"
+}
+
+### UpdateStatus video
+PUT localhost:8080/api/v1/video/updateStatus/f9634a61-d3a5-42a8-a6a4-78a02f0be4ac
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ4Mjc5MzMsImVtYWlsIjoibWFtdXJqb251em9rb3Y1NjhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfTU9ERVJBVE9SIiwiZXhwIjoxNjg0OTE0MzMzLCJpc3MiOiJZb3V0dWJlIHRlc3QgcG9ydGFsaSJ9.C1e1WeXjYP36obqgc00zwS3v7e0GUF8k2oteLnzhQqNmDP0jQLypyQPWwiF1p6SQdrCnd6ChklHHl6WFjxjYeQ
+Content-Type:  application/json
+
+### IncreaseVideoCount video
+PUT localhost:8080/api/v1/video/increaseVideoCount/bb705ba6-9a4b-4c11-97a5-2b61c05994cf
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ4Mjc5MzMsImVtYWlsIjoibWFtdXJqb251em9rb3Y1NjhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfTU9ERVJBVE9SIiwiZXhwIjoxNjg0OTE0MzMzLCJpc3MiOiJZb3V0dWJlIHRlc3QgcG9ydGFsaSJ9.C1e1WeXjYP36obqgc00zwS3v7e0GUF8k2oteLnzhQqNmDP0jQLypyQPWwiF1p6SQdrCnd6ChklHHl6WFjxjYeQ
+Content-Type:  application/json
+
+### Paging video
+PUT localhost:8080/api/v1/video/paging
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ4Mjg3MDYsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ5MTUxMDYsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.5Xsq2wa8txPEDMWnb4-v8AvB3b8hcTkZ2sgpPxIm6_yAW2nAlcygsjqT18ZNqpZhx3EP90YDBns5v76IE0zwjQ
+
+### UpdateStatus video
+GET localhost:8080/api/v1/video/SearchVideoByTitle/video
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ4Mjg3MDYsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ5MTUxMDYsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.5Xsq2wa8txPEDMWnb4-v8AvB3b8hcTkZ2sgpPxIm6_yAW2nAlcygsjqT18ZNqpZhx3EP90YDBns5v76IE0zwjQ

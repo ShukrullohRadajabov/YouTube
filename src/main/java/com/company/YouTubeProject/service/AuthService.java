@@ -29,28 +29,7 @@ public class AuthService {
     @Autowired
     private MailSenderService mailSenderService;
 
-<<<<<<< HEAD
-    public RegistrationResponseDTO registration(RegistrationDTO dto) {
-        Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());
-        if (optional.isPresent()) {
-            throw new ItemNotFoundException("Email already exists mazgi.");
-        }
-        ProfileEntity entity = new ProfileEntity();
-        entity.setName(dto.getName());
-        entity.setSurname(dto.getSurname());
-        entity.setRole(ProfileRole.ROLE_USER);
-        entity.setEmail(dto.getEmail());
-        entity.setPassword(MD5Util.getMd5Hash(dto.getPassword()));
-        entity.setStatus(GeneralStatus.REGISTER);
-        mailSenderService.sendRegistrationEmail(dto.getEmail());
-        profileRepository.save(entity);
-        String s = "Verification link was send to email: " + dto.getEmail();
-        return new RegistrationResponseDTO(s);
-    }
 
-
-=======
->>>>>>> master
     public AuthResponseDTO login(AuthDTO dto) {
         Optional<ProfileEntity> optional = profileRepository.findByEmailAndPassword(
                 dto.getEmail(),
@@ -66,13 +45,6 @@ public class AuthService {
         responseDTO.setName(entity.getName());
         responseDTO.setSurname(entity.getSurname());
         responseDTO.setRole(entity.getRole());
-<<<<<<< HEAD
-        responseDTO.setJwt(JwtUtil.encode(null, entity.getRole()));
-        return responseDTO;
-    }
-}
-
-=======
         responseDTO.setJwt(JwtUtil.encode(entity.getEmail(), entity.getRole()));
         return responseDTO;
     }
@@ -113,6 +85,7 @@ public class AuthService {
         entity.setEmail(dto.getEmail());
         entity.setPassword(MD5Util.getMd5Hash(dto.getPassword()));
         entity.setStatus(GeneralStatus.REGISTER);
+        entity.setPhotoId(dto.getPhotoId());
         mailSenderService.sendRegistrationEmailMime(dto.getEmail());
         profileRepository.save(entity);
         String s = "Verification link was send to email: " + dto.getEmail();
@@ -154,4 +127,3 @@ public class AuthService {
     }
 
 }
->>>>>>> master

@@ -60,10 +60,6 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // authorization
-        // URL ,API  Permission
-        // /api/v1/article/private/* - MODERATOR
-        // /api/v1/article//private/{id} - POST - MODERATOR
         http.csrf().disable().cors().disable();
         http.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
         http.authorizeHttpRequests()
@@ -71,6 +67,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/v1/*/public/**").permitAll()
                 .requestMatchers("/api/v1/auth/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/v1/*/private/**").hasAnyRole( "ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/api/v1/*/private/**").hasAnyRole( "ADMIN")
                 .anyRequest()
                 .authenticated() ;//.and().formLogin();
         return http.build();
