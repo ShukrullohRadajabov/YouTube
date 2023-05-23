@@ -33,18 +33,19 @@ public class ProfileEntity {
     private ProfileRole role;
     @Column(name = "created_date")
     private LocalDateTime createdDate = LocalDateTime.now();
-   /* @Column(name = "photo_id")
+    @Column(name = "photo_id")
     private String photoId;
     @OneToOne
     @JoinColumn(name = "photo_id", insertable = false, updatable = false)
-    private AttachEntity photo;*/
+    private AttachEntity photo;
 
 
-    public ProfileEntity(Integer id, String name, String surname, String email) {
+    public ProfileEntity(Integer id, String name, String surname, String email, AttachEntity photo) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.email = email;
+        this.photo = photo;
     }
 }
 

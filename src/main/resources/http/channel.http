@@ -1,0 +1,88 @@
+### Create channel
+POST localhost:8080/api/v1/channel/create
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ1NjcyNzUsImVtYWlsIjoidXpva292MjlAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY4NDY1MzY3NSwiaXNzIjoiWW91dHViZSB0ZXN0IHBvcnRhbGkifQ.EyRn7W5pwCdAay8Vu_zcIEGS451NCCuxJSyHhlV_HmvjdcGkKgOgFc_DtTpgsHIu3Tuk9VeAV8Dd-HnFVBa1qw
+Content-Type:  application/json
+
+//{
+//  "name": "Channel 1",
+//  "imageId": "89523e45-6fd0-45ed-acaa-779ecce102e1",
+//  "description": " About Channel 1",
+//  "bannerId": "3d725b16-f244-4d20-afbe-ec7ad7213fee"
+//}
+{
+  "name": "Channel 1",
+  "imageId": "17e3d366-d21b-4497-8317-b8f33f85dfaa",
+  "description": " About Channel 1",
+  "bannerId": "89523e45-6fd0-45ed-acaa-779ecce102e1"
+}
+
+### Create channel
+POST localhost:8080/api/v1/channel/create
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ1Njc0NzIsImVtYWlsIjoibWFtdXJqb251em9rb3Y1NjhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfTU9ERVJBVE9SIiwiZXhwIjoxNjg0NjUzODcyLCJpc3MiOiJZb3V0dWJlIHRlc3QgcG9ydGFsaSJ9.8_MkYtwjI7skmldob_QuoPZkUmqJgd1CCT2y3gc33S9ctRJex6g2dQ7ptssZAURhGNyJvwir22r2E2nMjZ91BA
+Content-Type:  application/json
+
+{
+  "name": "Channel 2",
+  "imageId": "89523e45-6fd0-45ed-acaa-779ecce102e1",
+  "description": " About Channel 2",
+  "bannerId": "3d725b16-f244-4d20-afbe-ec7ad7213fee"
+}
+
+### UpdateNameDescription channel
+PUT localhost:8080/api/v1/channel/update
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ1NjcyNzUsImVtYWlsIjoidXpva292MjlAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY4NDY1MzY3NSwiaXNzIjoiWW91dHViZSB0ZXN0IHBvcnRhbGkifQ.EyRn7W5pwCdAay8Vu_zcIEGS451NCCuxJSyHhlV_HmvjdcGkKgOgFc_DtTpgsHIu3Tuk9VeAV8Dd-HnFVBa1qw
+Content-Type:  application/json
+
+{
+  "id": "a78f617f-010a-4f5b-a2ed-50cc2858083e",
+  "name": "Channel ",
+  "description": " About Channel"
+}
+
+### UpdatPhoto channel
+PUT localhost:8080/api/v1/channel/updatePhoto
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ1Njc0NzIsImVtYWlsIjoibWFtdXJqb251em9rb3Y1NjhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfTU9ERVJBVE9SIiwiZXhwIjoxNjg0NjUzODcyLCJpc3MiOiJZb3V0dWJlIHRlc3QgcG9ydGFsaSJ9.8_MkYtwjI7skmldob_QuoPZkUmqJgd1CCT2y3gc33S9ctRJex6g2dQ7ptssZAURhGNyJvwir22r2E2nMjZ91BA
+Content-Type:  application/json
+
+{
+  "id": "a78f617f-010a-4f5b-a2ed-50cc2858083e",
+  "imageId": "3d725b16-f244-4d20-afbe-ec7ad7213fee"
+}
+
+### UpdateBanner channel
+PUT localhost:8080/api/v1/channel/updateBanner
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ1Njc0NzIsImVtYWlsIjoibWFtdXJqb251em9rb3Y1NjhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfTU9ERVJBVE9SIiwiZXhwIjoxNjg0NjUzODcyLCJpc3MiOiJZb3V0dWJlIHRlc3QgcG9ydGFsaSJ9.8_MkYtwjI7skmldob_QuoPZkUmqJgd1CCT2y3gc33S9ctRJex6g2dQ7ptssZAURhGNyJvwir22r2E2nMjZ91BA
+Content-Type:  application/json
+
+{
+  "id": "a78f617f-010a-4f5b-a2ed-50cc2858083e",
+  "imageId": "17e3d366-d21b-4497-8317-b8f33f85dfaa"
+}
+
+
+### UpdateStatus channel
+### Authorization ga profile Id da turgan odamni JVT sini qoyingla yoki Adminni bumasa oshibka beradi
+PUT localhost:8080/api/v1/channel/updateStatus/a78f617f-010a-4f5b-a2ed-50cc2858083e
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ1Njc5NDAsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ2NTQzNDAsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.yFlAd9ujXSBKH5L5-wiI_L3VkSv5Oh68RliDKBkY7bFQ51BCPzaC2SxbdA42iqJRWx4CNi2YIGPrzvsSumJ-rA
+Content-Type:  application/json
+
+### UpdateStatus channel
+PUT localhost:8080/api/v1/channel/updateStatus/a78f617f-010a-4f5b-a2ed-50cc2858083e
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ1NzAyOTEsImVtYWlsIjoidXpva292MjlAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY4NDY1NjY5MSwiaXNzIjoiWW91dHViZSB0ZXN0IHBvcnRhbGkifQ.GfGIFiA35W2Hnu9RH2Pzm9sHFmeWE768I2z_cIAxl1C9FfOXr_QfIMySG1EenbjdZbaSk7lTsb2kX3m-zRj81g
+Content-Type:  application/json
+
+
+### Paging channel
+PUT localhost:8080/api/v1/channel/private/paging
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ1NjkzMDUsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ2NTU3MDUsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.5ikRW-SL-tfijFOZh5SiqK2Wk6PLPD1mUIsex1nuztng7K7oP7M9mnOZiJJwSHOluPz9zv24vJAA12ImiqA1tQ
+
+### GetChannelDetail
+### Authorization ga profile Id da turgan odamni JVT sini qoyingla bumasa oshibka beradi
+PUT localhost:8080/api/v1/channel/getChannelDetail/a78f617f-010a-4f5b-a2ed-50cc2858083e
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ1NzAyOTEsImVtYWlsIjoidXpva292MjlAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY4NDY1NjY5MSwiaXNzIjoiWW91dHViZSB0ZXN0IHBvcnRhbGkifQ.GfGIFiA35W2Hnu9RH2Pzm9sHFmeWE768I2z_cIAxl1C9FfOXr_QfIMySG1EenbjdZbaSk7lTsb2kX3m-zRj81g
+
+### UserChannelList
+### Authorization ga profile Id da turgan odamni JVT sini qoyingla bumasa oshibka beradi
+GET localhost:8080/api/v1/channel/userChannelList
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ1NzAyOTEsImVtYWlsIjoidXpva292MjlAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY4NDY1NjY5MSwiaXNzIjoiWW91dHViZSB0ZXN0IHBvcnRhbGkifQ.GfGIFiA35W2Hnu9RH2Pzm9sHFmeWE768I2z_cIAxl1C9FfOXr_QfIMySG1EenbjdZbaSk7lTsb2kX3m-zRj81g
+

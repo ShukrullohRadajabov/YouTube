@@ -12,9 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProfileUpdateDTO {
-    @NotBlank(message = "Where is name !!")
-    private String name;
-    @NotBlank(message = "Where is surname !!")
-    private String surname;
+public class ProfileAttachDTO {
+    @NotBlank(message = "Where is photo Id !!")
+    private String photoId;
 }

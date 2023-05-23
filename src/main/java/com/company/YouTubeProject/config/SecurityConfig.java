@@ -18,13 +18,30 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebSecurity
 @Component
+@EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
     @Autowired
     private UserDetailsService userDetailsService;
     @Autowired
     private TokenFilter tokenFilter;
 
+    /*    @Bean
+        public AuthenticationProvider authenticationProvider() {
+            // authentication
+            // login,password ACTIVE,
+            String password = UUID.randomUUID().toString();
+            System.out.println("User Pasword mazgi: " + password);
 
+            UserDetails user = User.builder()
+                    .username("user")
+                    .password("{noop}" + password)
+                    .roles("USER")
+                    .build();
+
+            final DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+            authenticationProvider.setUserDetailsService(new InMemoryUserDetailsManager(user));
+            return authenticationProvider;
+        }*/
     public static String[] AUTH_WHITELIST = {"/api/v1/*/public/**",
 
             "/api/v1/auth/**",
@@ -43,10 +60,6 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // authorization
-        // URL ,API  Permission
-        // /api/v1/article/private/* - MODERATOR
-        // /api/v1/article//private/{id} - POST - MODERATOR
         http.csrf().disable().cors().disable();
         http.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
         http.authorizeHttpRequests()

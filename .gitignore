@@ -34,3 +34,16 @@ build/
 
 ### Other ###
 src/main/resources/application-local.properties
+### My git Ignore
+*.mvn
+/mvnw
+/mvnw.cmd
+!**/src/main/resources/talablar.txt
+
+
+
+
+/src/main/resources/application-local.properties
+/.idea/
+/attaches/
+/.idea/

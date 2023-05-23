@@ -1,4 +1,4 @@
-package com.company.YouTubeProject.dto.profile;
+package com.company.YouTubeProject.dto.channel;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotBlank;
@@ -12,9 +12,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProfileUpdateDTO {
-    @NotBlank(message = "Where is name !!")
+public class ChannelUpdateDTO {
+    @NotBlank(message = "You must enter Channel id")
+    private String id;
+    @NotBlank(message = "Name must have some value")
     private String name;
-    @NotBlank(message = "Where is surname !!")
-    private String surname;
+    @NotBlank(message = "Description must have some value")
+    private String description;
 }

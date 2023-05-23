@@ -14,12 +14,9 @@ import com.company.YouTubeProject.enums.ProfileRole;
 import com.company.YouTubeProject.exeption.AppBadRequestException;
 import com.company.YouTubeProject.exeption.ItemNotFoundException;
 import com.company.YouTubeProject.repository.ProfileRepository;
-import com.company.YouTubeProject.utill.JwtUtil;
-import com.company.YouTubeProject.utill.MD5Util;
-
-import com.company.YouTubeProject.utill.JwtUtil;
-import com.company.YouTubeProject.utill.MD5Util;
-import com.company.YouTubeProject.utill.SpringSecurityUtill;
+import com.company.YouTubeProject.util.JwtUtil;
+import com.company.YouTubeProject.util.MD5Util;
+import com.company.YouTubeProject.util.SpringSecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +30,28 @@ public class AuthService {
     @Autowired
     private MailSenderService mailSenderService;
 
+
+    public RegistrationResponseDTO registration(RegistrationDTO dto) {
+        Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());
+        if (optional.isPresent()) {
+            throw new ItemNotFoundException("Email already exists mazgi.");
+        }
+        ProfileEntity entity = new ProfileEntity();
+        entity.setName(dto.getName());
+        entity.setSurname(dto.getSurname());
+        entity.setRole(ProfileRole.ROLE_USER);
+        entity.setEmail(dto.getEmail());
+        entity.setPassword(MD5Util.getMd5Hash(dto.getPassword()));
+        entity.setStatus(GeneralStatus.REGISTER);
+        mailSenderService.sendRegistrationEmail(dto.getEmail());
+        profileRepository.save(entity);
+        String s = "Verification link was send to email: " + dto.getEmail();
+        return new RegistrationResponseDTO(s);
+    }
+
+
+=======
+>>>>>>> master
     public AuthResponseDTO login(AuthDTO dto) {
         Optional<ProfileEntity> optional = profileRepository.findByEmailAndPassword(
                 dto.getEmail(),
@@ -48,14 +67,38 @@ public class AuthService {
         responseDTO.setName(entity.getName());
         responseDTO.setSurname(entity.getSurname());
         responseDTO.setRole(entity.getRole());
+        responseDTO.setJwt(JwtUtil.encode(entity.getEmail(), entity.getRole()));
+        return responseDTO;
+    }
 
         responseDTO.setJwt(JwtUtil.encode(null, entity.getRole()));
         return responseDTO;
     }
 
-
-
-
+    /*
+    public ProfileDTO register(ProfileDTO dto) {
+        Optional<ProfileEntity> optional = profileRepository.findByEmailAndPassword(dto.getEmail(),dto.getPassword());
+        if (optional.isPresent()) {
+            throw new ItemNotFoundException("This email or password already use :)");
+        }
+        ProfileEntity entity = new ProfileEntity();
+        entity.setName(dto.getName());
+        entity.setSurname(dto.getSurname());
+        entity.setPhone(dto.getPhone());
+        entity.setEmail(dto.getEmail());
+        entity.setPassword(MD5Util.getMd5Hash(dto.getPassword())); // MD5 ?
+        entity.setCreatedDate(LocalDateTime.now());
+        entity.setUpdatedDate(LocalDateTime.now());
+        entity.setPrtId(1);
+        entity.setVisible(true);
+        entity.setStatus(GeneralStatus.ACTIVE);
+        entity.setRole(ProfileRole.ADMIN);
+        profileRepository.save(entity);
+        dto.setPassword(null);
+        dto.setId(entity.getId());
+        return dto;
+    }
+    */
     public RegistrationResponseDTO registration(RegistrationDTO dto) {
         Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());
         if (optional.isPresent()) {
@@ -68,6 +111,7 @@ public class AuthService {
         entity.setEmail(dto.getEmail());
         entity.setPassword(MD5Util.getMd5Hash(dto.getPassword()));
         entity.setStatus(GeneralStatus.REGISTER);
+        entity.setPhotoId(dto.getPhotoId());
         mailSenderService.sendRegistrationEmailMime(dto.getEmail());
         profileRepository.save(entity);
         String s = "Verification link was send to email: " + dto.getEmail();

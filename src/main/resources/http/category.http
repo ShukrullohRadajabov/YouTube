@@ -1,11 +1,11 @@
 ### Category
 POST localhost:8080/api/v1/category/private/adm
 Content-Type:  application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQyMzc1NDgsImVtYWlsIjoibXVoYW1tYWR5dXN1ZmdhcGlyb3ZAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQzMjM5NDgsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.1WE6AUBaEhe6b7p_uQFysfbeyw2Y2nmVsYjpK_XYj0wTPXdVQh8P0iRP5vtu_AVVwSzWlcLUIiPayLzClgyn7w
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ4MjY5MjcsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODQ5MTMzMjcsImlzcyI6IllvdXR1YmUgdGVzdCBwb3J0YWxpIn0.JgK1eK781Mg-0ApXAJbZTuO7Pd80B0zFpIrW9y8YYjAtJcP9XE705r7PSDxa3NARs4IGc7TWTvW5cjouB1vElw
 
 
 {
-  "name" : "ssssss"
+  "name" : "Joke"
 }
 
 
