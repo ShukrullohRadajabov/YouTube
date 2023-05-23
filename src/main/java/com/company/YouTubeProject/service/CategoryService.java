@@ -18,11 +18,9 @@ public class CategoryService {
 
     public CategoryResponseDTO created(CategoryDTO dto) {
         Optional<CategoryEntity> optional = categoryRepository.findByName(dto.getName());
-
         if (optional.isPresent()) {
             throw new ItemAlreadyExistsException("Category already exists!");
         }
-
         CategoryEntity entity = new CategoryEntity();
         entity.setName(dto.getName());
         entity.setCreatedDate(LocalDateTime.now());
