@@ -1,12 +1,8 @@
 package com.company.YouTubeProject.controller;
-
-import com.company.YouTubeProject.dto.VideoLikeDTO;
-import com.company.YouTubeProject.dto.category.CategoryDTO;
-import com.company.YouTubeProject.dto.category.CategoryResponseDTO;
 import com.company.YouTubeProject.service.VideoLikeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
+
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,7 +13,7 @@ public class VideoLikeController {
 
     @PostMapping("/public/createlike/{id}")
     private ResponseEntity<Boolean> created(@PathVariable("id") Integer videoid,@RequestBody Integer profileid) {
-        return ResponseEntity.ok(service.create(videoid,profileid));
+        return ResponseEntity.ok(service.create(videoid));
     }
 
     @PostMapping("/public/dislike/{id}")

@@ -1,13 +1,7 @@
 package com.company.YouTubeProject.config;
-
-
-
-
-
 import com.company.YouTubeProject.dto.jwt.JwtDTO;
-import com.company.YouTubeProject.utill.JwtUtil;
+import com.company.YouTubeProject.util.JwtUtil;
 import io.jsonwebtoken.JwtException;
-import com.company.YouTubeProject.utill.JwtUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,8 +15,6 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.filter.OncePerRequestFilter;
-import io.jsonwebtoken.JwtException;
-
 import java.io.IOException;
 import java.util.Arrays;
 

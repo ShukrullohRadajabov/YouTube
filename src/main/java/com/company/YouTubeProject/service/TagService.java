@@ -1,16 +1,11 @@
 package com.company.YouTubeProject.service;
-
-import com.company.YouTubeProject.dto.TagDTO;
-import com.company.YouTubeProject.entity.ProfileEntity;
+import com.company.YouTubeProject.dto.tag.TagDTO;
 import com.company.YouTubeProject.entity.TagEntity;
 import com.company.YouTubeProject.util.*;
-
 import com.company.YouTubeProject.exeption.AppBadRequestException;
 import com.company.YouTubeProject.repository.TagRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;

@@ -11,14 +11,7 @@ Content-Type:  application/json
   "videoId": "f3d82d1f-b72e-468d-b37e-5ff2e67a459b",
   "channelId": "a78f617f-010a-4f5b-a2ed-50cc2858083e"
 }
-//{
-//  "title": "video",
-//  "description": "video about Juniors",
-//  "categoryId": "1",
-//  "previewId": "89523e45-6fd0-45ed-acaa-779ecce102e1",
-//  "videoId": "cc009302-dc1c-4090-b280-a376593e81e3",
-//  "channelId": "a78f617f-010a-4f5b-a2ed-50cc2858083e"
-//}
+
 
 ### Create video
 POST localhost:8080/api/v1/video/create

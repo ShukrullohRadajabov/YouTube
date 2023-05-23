@@ -1,9 +1,10 @@
 package com.company.YouTubeProject.service;
 
-import com.company.YouTubeProject.dto.VideoLikeDTO;
+import com.company.YouTubeProject.dto.videolike.VideoLikeDTO;
 import com.company.YouTubeProject.entity.VideoLikeEntity;
 import com.company.YouTubeProject.enums.VideoLike;
 import com.company.YouTubeProject.repository.VideoLikeRepository;
+import com.company.YouTubeProject.util.SpringSecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +15,8 @@ public class VideoLikeService {
 
     @Autowired
     private VideoLikeRepository repository;
-    public Boolean create(Integer videoid,Integer profileid) {
-        makeEmotion(videoid, profileid, VideoLike.LIKE);
+    public Boolean create(Integer videoid) {
+        makeEmotion(videoid, SpringSecurityUtil.getProfileId(), VideoLike.LIKE);
         return true;
     }
 

@@ -1,5 +1,6 @@
 package com.company.YouTubeProject.config;
 
+import com.company.YouTubeProject.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -65,7 +66,7 @@ public class SecurityConfig {
             }
             @Override
             public boolean matches(CharSequence rawPassword, String encodedPassword) {
-                if (MD5.getMd5Hash(rawPassword.toString()).equals(encodedPassword)) {
+                if (MD5Util.getMd5Hash(rawPassword.toString()).equals(encodedPassword)) {
                     return true;
                 }
                 return false;

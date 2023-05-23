@@ -72,26 +72,6 @@ public class AuthService {
         return responseDTO;
     }
 
-
-
-    public RegistrationResponseDTO registration(RegistrationDTO dto) {
-        Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());
-        if (optional.isPresent()) {
-            throw new ItemNotFoundException("Email already exists mazgi.");
-        }
-        ProfileEntity entity = new ProfileEntity();
-        entity.setName(dto.getName());
-        entity.setSurname(dto.getSurname());
-        entity.setRole(ProfileRole.ROLE_USER);
-        entity.setEmail(dto.getEmail());
-        entity.setPassword(MD5Util.getMd5Hash(dto.getPassword()));
-        entity.setStatus(GeneralStatus.REGISTER);
-        entity.setPhotoId(dto.getPhotoId());
-        mailSenderService.sendRegistrationEmailMime(dto.getEmail());
-        profileRepository.save(entity);
-        String s = "Verification link was send to email: " + dto.getEmail();
-        return new RegistrationResponseDTO(s);
-    }
     public MailChangeResponseDTO changeEmail(ChangeEmailDTO dto) {
         Optional<ProfileEntity> optional = profileRepository.findByEmail(SpringSecurityUtil.getProfileEmail());
         if (optional.isEmpty()) {

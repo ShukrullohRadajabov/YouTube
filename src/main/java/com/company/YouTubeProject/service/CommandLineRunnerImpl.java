@@ -5,7 +5,8 @@ import com.company.YouTubeProject.enums.GeneralStatus;
 import com.company.YouTubeProject.enums.ProfileRole;
 import com.company.YouTubeProject.repository.ProfileRepository;
 
-import com.company.YouTubeProject.utill.MD5Util;
+
+import com.company.YouTubeProject.util.MD5Util;
 import org.flywaydb.core.Flyway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

@@ -1,4 +1,4 @@
-package com.company.YouTubeProject.dto;
+package com.company.YouTubeProject.dto.videolike;
 
 import com.company.YouTubeProject.enums.VideoLike;
 import lombok.Data;
